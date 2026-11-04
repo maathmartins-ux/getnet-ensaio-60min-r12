@@ -1,12 +1,12 @@
-# {{NOME DO PROJETO}}
+# Getnet Multi-Agent Support System
 
-{{Uma frase: o que o sistema faz e para quem.}}
+Atendimento multiagente para lojistas da Getnet: um Router decide entre o agente de conhecimento (RAG sobre o site oficial), o de suporte (ferramentas sobre os dados do cliente), o geral (clima e câmbio por API oficial, busca web) e o humano, em português ou inglês.
 
 | | |
 |---|---|
 | Rodar | `docker compose up -d --build` → `http://localhost:8000/docs` · console do operador em `/operator` |
 | Testar | `python scripts/check.py --docker --scale` (lint, testes, eval com gate, build, imagem sem extras, smoke do container, 2 réplicas atrás de balanceador) |
-| CI | {{badge/link do último run verde}} |
+| CI | [GitHub Actions](../../actions/workflows/ci.yml) (o último commit é só o README; o código é o do commit anterior) |
 | Vídeo | [walkthrough na página de Releases](../../releases/tag/video) (MP4 + legendas; narração por IA a partir do roteiro do autor, telas e números reais) |
 
 O que o enunciado pede que o README cubra → onde: build, configure, run and test (§1) · orchestration architecture
@@ -129,7 +129,7 @@ Por que essa divisão: cada especialista tem uma fonte de verdade (faq → corpu
 fila humana) e devolve o mesmo contrato com status explícito (`AgentResult`); o supervisor só coordena, e o código
 confere o que ele decide (`ALLOWED`, `MAX_STEPS`, orçamento, escalada garantida). A resposta do operador volta ao
 plano como evidência, não como mensagem solta. Contrato público em `src/app/schemas.py`.
-{{o que o desafio acrescenta ou tira dessa divisão}}
+No desafio Getnet a divisão ganha a intenção `troubleshoot` (o suporte lê o terminal ou a transação e o achado `needs` chama o manual do conhecimento, sem o plano já trazer os dois) e a `general`, que nunca escala: clima e câmbio vêm das tools `weather_forecast` e `currency_rate`, com a data e a fonte da API. Taxonomia, desempates e tools congelados em [docs/SPEC.md](docs/SPEC.md) antes do código.
 
 ### 2.1 Message workflow (o caminho de uma mensagem)
 
@@ -148,7 +148,7 @@ plano como evidência, não como mensagem solta. Contrato público em `src/app/s
    O texto não mostra código interno: o contrato do motor pede palavras e a limpeza final é a rede de segurança
    (citação com a oração inteira, nome de agente em palavras, valor de lista fechada pelo rótulo legível;
    `tests/test_r12_texto.py::test_citation_scrub_never_leaves_a_fragment`).
-   {{o que muda no fluxo do desafio, se algo}}
+   No desafio, o passo 4 resolve também os seguimentos de terminal ("e a outra?", "how long has it been down?") como `support`, e o passo 5 encadeia suporte → conhecimento pelo achado da tool (terminal offline ou venda recusada).
 
 ### 2.2 RAG pipeline: ingestion → storage → retrieval → generation
 
@@ -170,7 +170,7 @@ plano como evidência, não como mensagem solta. Contrato público em `src/app/s
   calibrado (`--calibrate-rerank-gate`); o BM25 só entra no idioma do corpus (`rag.lexical_fits`).
 - **Generation** (`src/app/agents.py`, `src/app/prompts/faq.md`): o agente de conhecimento redige só com os trechos
   aceitos e cita a fonte; responde o que a fonte cobre e diz o que falta (`partial`) ou vai ao humano (`insufficient`).
-  {{números do corpus deste desafio: páginas, trechos, buscador escolhido e por quê}}
+  Corpus do desafio: páginas de produto do site oficial (maquininhas e taxas, Pix, crediário, Link de Pagamento, pagamento pelo WhatsApp, Get Tap) e as FAQs da central `/duvidas/` (Get Smart, Get Conta, Pix, antecipação), listadas com URL, id e data em [docs/SOURCES.md](docs/SOURCES.md) e `data/sources.json`; a contagem de trechos sai da ingestão (`data/knowledge/`). O buscador é o padrão do kit, escolhido antes do relógio (não remedido aqui); o portão sem fonte é o do rerank, calibrado no gold deste domínio com pares pt/en.
 
 ### 2.3 Supervisão humana (o caminho do operador)
 
@@ -249,7 +249,7 @@ duas existe (`tests/test_evidence.py` falha se um sumir).
 
 | Tema | O que foi feito | Código | Prova principal | Limite |
 |---|---|---|---|---|
-| Business & Challenge Fit | {{cenários do enunciado → split `official`; KPI do negócio que o sistema move}} | `src/app/tools.py` | `evals/cases.jsonl` | mede os cenários do enunciado e perguntas reais coletadas, não tráfego de produção |
+| Business & Challenge Fit | os 10 cenários do enunciado, literais, no split `official` com os fatos de referência; o suporte lê o dado do cliente (`src/app/domain/challenge/tools.py`); KPI: perguntas resolvidas sem humano e com fonte (oficiais resolvidas, §0) | `src/app/tools.py` | `evals/cases.jsonl` | mede os cenários do enunciado e perguntas reais coletadas, não tráfego de produção |
 | Agentic Reasoning & Orchestration | Supervisor LLM com os especialistas como tools: lê o status e todo achado das tools (`needs`) e decide cada passo; o código aprova (`ALLOWED`, `MAX_STEPS`, orçamento) e grava quem decidiu (`decided_by`) | `src/app/supervisor.py` | `tests/test_supervisor_needs_budget.py::test_llm_engine_gets_the_finding_the_rule_left_out_and_decides` | o modelo pode ignorar um achado mesmo após o lembrete (conta como `ignored`) |
 | ↳ Router (faz parte de Agentic Reasoning & Orchestration) | Haiku com JSON schema: intenção, pergunta reescrita e buscas; reescrita com id inventado é recusada | `src/app/router.py` | `tests/test_r53_standalone.py::test_llm_rewrite_with_invented_id_is_rejected_and_falls_back_to_inheritance` | intenção fora dos exemplos do domínio cai no `DEFAULT_INTENT` |
 | Context, Knowledge & RAG | Busca densa nas páginas oficiais com janelas por trecho (a melhor janela pontua o trecho quando casa claramente melhor; o redator recebe o trecho inteiro, com o mesmo id), com o cross-encoder só no portão sem fonte (padrão medido antes do relógio, `KIT_RETRIEVER`); o que a fonte não cobre sai `partial` ou `insufficient` | `src/app/rag.py`, `src/app/agents.py` | `tests/test_agents.py::test_faq_llm_not_in_sources_is_insufficient` | gold de busca escrito pelo time, não pelo cliente |
@@ -279,7 +279,7 @@ Cada decisão com a alternativa descartada e o número que a decidiu. Os número
 | SQLite como padrão, **Postgres atrás da mesma interface** para vários hosts ([ADR 0003](docs/adr/0003-postgres-opcional.md)) | Postgres obrigatório / ORM / Redis | zero serviço externo para quem clona e roda; os testes de disputa (caso, ação, resposta, SLA, limite) rodam nos dois backends |
 | Agentes independentes em threads | asyncio | os agentes fazem I/O síncrono (SQLite, SDK); threads cortam o p95 sem reescrever a pilha |
 | Effort por papel (supervisor low, agentes medium) | um effort global | o supervisor só escolhe o próximo passo; quem redige com fonte precisa de mais |
-| {{decisão do desafio}} | {{alternativa}} | {{número}} |
+| Portão "sem fonte" pela nota do rerank (`MIN_RERANK`) | portão BM25 (`MIN_SCORE`) calibrado no mesmo gold | o BM25 recusava a maioria das perguntas em inglês com fonte (tabela por idioma de `run_evals --calibrate-gate`); o do rerank separou com × sem fonte nos dois idiomas (`--calibrate-rerank-gate`, commit `gate:`) |
 
 ## 5. How LLM tools were used (como as ferramentas de LLM foram usadas)
 
@@ -287,8 +287,7 @@ Cada decisão com a alternativa descartada e o número que a decidiu. Os número
   agentes Sonnet, juiz Opus ou de outra família (`JUDGE_PROVIDER=openai_compat`). Ferramentas com JSON Schema e
   identidade do servidor (`src/app/tools.py`); saída estruturada no router e no juiz; cache de prompt no system e
   nas tools de cada papel; cassete grava cada resposta do LLM para o replay offline no CI.
-- **Na construção:** {{sessões do Claude Code (o que cada uma fez, sem apelido)}}; {{o que o kit trouxe pronto e o
-  que foi escrito no relógio}}; detalhe em [docs/PROCEDENCIA.md](docs/PROCEDENCIA.md).
+- **Na construção:** uma sessão principal escreveu a SPEC, os casos oficiais e de orquestração, integrou e mediu; subagentes em worktrees próprios fizeram o corpus e o gold (conhecimento), o roteamento e os prompts, as tools e o CRM, os casos de qualidade e segurança e a documentação; dois autores cegos escreveram o held-out, um terceiro coletou as perguntas reais com link, e dois rotuladores cegos marcaram as passagens essenciais do gold de busca; uma sessão de fora do relógio acompanhou e revisou; o motor, o runner de avaliação, os scripts e a CI vieram do kit; o domínio (corpus, glossário, taxonomia, prompts do domínio, tools, CRM, casos, gold) foi escrito no relógio; detalhe em [docs/PROCEDENCIA.md](docs/PROCEDENCIA.md).
 - **Na avaliação:** LLM como juiz com canários e um gabarito de calibração (rótulos escritos a partir da SPEC; humanos
   quando houver rotulagem); rascunho de rótulo pelo modelo com revisão do dono linha a linha
   (`python -m evals.error_analysis`), separado da rotulagem cega.
@@ -311,7 +310,7 @@ conta como **resolvida** sem humano, com todo fato de referência e com fonte.
   cassete para o replay no CI (`--replay`, piso = taxas da gravação aceita).
 - **Humano**: análise de erros em ~60 traces reais (rascunho do modelo, edições do dono contadas, um modo de falha
   por checagem) e held-out cego rotulado na página (passa/falha ponta a ponta; a intenção é diagnóstico).
-  {{o que rodou no relógio e o que não rodou}}
+  No relógio rodaram a fumaça ao vivo dos oficiais, a bateria ao vivo integral com o juiz e o check; a rotulagem humana NÃO rodou neste ensaio (decisão do dono: nenhum rotulador), então o juiz conta só como regressão e a análise de erros sai como rascunho não revisado.
 
 ## 7. Perguntas da entrevista, respondidas
 
@@ -320,9 +319,9 @@ As perguntas que uma entrevista técnica faria, respondidas com o número medido
 | Pergunta | Resposta curta | Onde está a prova |
 |---|---|---|
 | Quais respostas oficiais o juiz reprova, e por quê, se intenção e ferramentas acertam? | {{causas por caso, antes × depois}} | `docs/JUDGE_DIFF.md` |
-| O rerank tem ganho medido? Por que está (ou não) no caminho? | {{tabela bm25 × híbrido × rerank, latência}} | `evals/results/retrieval_compare.json` |
+| O rerank tem ganho medido? Por que está (ou não) no caminho? | não remedido no relógio: o buscador é o padrão do kit, escolhido antes por medida fora daqui; o rerank decide só o portão sem fonte, calibrado neste domínio (commit `gate:`); `make compare` refaz a tabela | `evals/results/retrieval_compare.json` |
 | Onde a memória perde informação? | {{memória × roteamento, separados}} | §0 e `docs/RESULTS.md` |
-| Quanto do kit foi escrito depois das correções anteriores? | {{resposta direta, com a tabela do git}} | `docs/PROCEDENCIA.md` |
+| Quanto do kit foi escrito depois das correções anteriores? | o motor inteiro veio do kit; o domínio inteiro foi escrito no relógio (ver `git log` desde o commit de scaffold e [docs/PROCEDENCIA.md](docs/PROCEDENCIA.md)) | `docs/PROCEDENCIA.md` |
 | Como medir o ganho do replanejamento em perguntas reais? | {{split de perguntas reais de lojistas, com e sem}} | `evals/results/ablation_replan*.json` |
 
 ## 8. Procedência e linha do tempo
@@ -369,6 +368,6 @@ Do primeiro ao último commit: **5228 min**, 400 commits (aqui os 20 marcos; tod
 
 Cada limitação com o efeito que ela tem e o que faltaria para resolver:
 
-- {{o que é simulado (dados do cliente, operador), o efeito e o que faltaria}}
+- Simulado: o CRM (`data/crm/`, dois clientes com datas relativas a hoje) e a operadora humana nos testes de HITL (`evals/operator_sim.py`). Efeito: as respostas de suporte provam o caminho (tool → total calculado no código → resposta), não a integração com o sistema real da Getnet; faltaria o conector do backoffice com o mesmo schema e a fila ligada ao time de atendimento.
 - {{cada medida do §0 abaixo da referência ou não medida: o mecanismo, o número e o custo de corrigir}}
 - {{o que ficou de fora e por quê; o que não rodou no relógio}}
