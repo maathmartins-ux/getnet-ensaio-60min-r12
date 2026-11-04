@@ -1,0 +1,4386 @@
+{
+  "mode": "in-process",
+  "provider": "anthropic",
+  "recorded_at": "2026-11-04T11:36:07Z",
+  "git_sha": "5bf537e",
+  "live": true,
+  "split": "parallel",
+  "status": "complete",
+  "spent_usd": 0.099685,
+  "max_usd": 0.112717,
+  "budget": {
+    "share": 0.112717,
+    "borrowed": 0.0,
+    "limit": 0.112717
+  },
+  "concurrency": {
+    "cases_at_once": 8,
+    "max_concurrent": 8,
+    "workers": 8,
+    "splits_in_process": 13,
+    "cpus": 4
+  },
+  "llm_errors": 0.0,
+  "gate": 0.9,
+  "intent_acc": 1.0,
+  "intent_ci": {
+    "k": 3,
+    "n": 3,
+    "lo": 43.9,
+    "hi": 100.0
+  },
+  "isolation": "db_per_case",
+  "coverage_min_score": {
+    "effective": 0.5,
+    "source": "MIN_SCORE"
+  },
+  "coverage_min_rerank": -4.986,
+  "gated_splits": [
+    "parallel"
+  ],
+  "ungated_splits": [
+    "hard",
+    "heldout",
+    "real"
+  ],
+  "passed": true,
+  "gate_red_team": null,
+  "resolved": {
+    "by_split": {
+      "parallel": {
+        "k": 3,
+        "n": 3,
+        "rate": 1.0,
+        "ci": {
+          "k": 3,
+          "n": 3,
+          "lo": 43.9,
+          "hi": 100.0
+        },
+        "pass_hat_k": 1.0,
+        "cases": {
+          "parallel-01": {
+            "runs": 1,
+            "resolved": 1
+          },
+          "parallel-02": {
+            "runs": 1,
+            "resolved": 1
+          },
+          "parallel-03": {
+            "runs": 1,
+            "resolved": 1
+          }
+        },
+        "unresolved": []
+      }
+    }
+  },
+  "gate_resolved": null,
+  "metrics": {
+    "parallel": {
+      "cases": 3,
+      "resolved_acc": 100.0,
+      "facts_acc": 100.0,
+      "intent_acc": 100.0,
+      "handoff_acc": 100.0,
+      "handoff_outcome_acc": 100.0,
+      "blocked_acc": null,
+      "language_acc": 100.0,
+      "tools_acc": 100.0,
+      "pending_action_acc": null,
+      "replanned_acc": null,
+      "completed_acc": null,
+      "no_leak_acc": null,
+      "numbers_acc": 100.0,
+      "memory_acc": null,
+      "claims_acc": 100.0,
+      "human_in_turn_acc": null,
+      "human_once_acc": null,
+      "after_human_acc": null,
+      "language_undetected": 0,
+      "recall@3": null,
+      "mrr": null,
+      "p50_ms": 15140.6,
+      "p95_ms": 17343.4,
+      "cost_usd": 0.099685,
+      "crashes": 0,
+      "ci": {
+        "resolved_acc": {
+          "k": 3,
+          "n": 3,
+          "lo": 43.9,
+          "hi": 100.0
+        },
+        "facts_acc": {
+          "k": 3,
+          "n": 3,
+          "lo": 43.9,
+          "hi": 100.0
+        },
+        "intent_acc": {
+          "k": 3,
+          "n": 3,
+          "lo": 43.9,
+          "hi": 100.0
+        },
+        "handoff_acc": {
+          "k": 3,
+          "n": 3,
+          "lo": 43.9,
+          "hi": 100.0
+        },
+        "handoff_outcome_acc": {
+          "k": 3,
+          "n": 3,
+          "lo": 43.9,
+          "hi": 100.0
+        },
+        "language_acc": {
+          "k": 3,
+          "n": 3,
+          "lo": 43.9,
+          "hi": 100.0
+        },
+        "tools_acc": {
+          "k": 3,
+          "n": 3,
+          "lo": 43.9,
+          "hi": 100.0
+        },
+        "numbers_acc": {
+          "k": 3,
+          "n": 3,
+          "lo": 43.9,
+          "hi": 100.0
+        },
+        "claims_acc": {
+          "k": 3,
+          "n": 3,
+          "lo": 43.9,
+          "hi": 100.0
+        }
+      }
+    },
+    "ALL": {
+      "cases": 3,
+      "resolved_acc": 100.0,
+      "facts_acc": 100.0,
+      "intent_acc": 100.0,
+      "handoff_acc": 100.0,
+      "handoff_outcome_acc": 100.0,
+      "blocked_acc": null,
+      "language_acc": 100.0,
+      "tools_acc": 100.0,
+      "pending_action_acc": null,
+      "replanned_acc": null,
+      "completed_acc": null,
+      "no_leak_acc": null,
+      "numbers_acc": 100.0,
+      "memory_acc": null,
+      "claims_acc": 100.0,
+      "human_in_turn_acc": null,
+      "human_once_acc": null,
+      "after_human_acc": null,
+      "language_undetected": 0,
+      "recall@3": null,
+      "mrr": null,
+      "p50_ms": 15140.6,
+      "p95_ms": 17343.4,
+      "cost_usd": 0.099685,
+      "crashes": 0,
+      "ci": {
+        "resolved_acc": {
+          "k": 3,
+          "n": 3,
+          "lo": 43.9,
+          "hi": 100.0
+        },
+        "facts_acc": {
+          "k": 3,
+          "n": 3,
+          "lo": 43.9,
+          "hi": 100.0
+        },
+        "intent_acc": {
+          "k": 3,
+          "n": 3,
+          "lo": 43.9,
+          "hi": 100.0
+        },
+        "handoff_acc": {
+          "k": 3,
+          "n": 3,
+          "lo": 43.9,
+          "hi": 100.0
+        },
+        "handoff_outcome_acc": {
+          "k": 3,
+          "n": 3,
+          "lo": 43.9,
+          "hi": 100.0
+        },
+        "language_acc": {
+          "k": 3,
+          "n": 3,
+          "lo": 43.9,
+          "hi": 100.0
+        },
+        "tools_acc": {
+          "k": 3,
+          "n": 3,
+          "lo": 43.9,
+          "hi": 100.0
+        },
+        "numbers_acc": {
+          "k": 3,
+          "n": 3,
+          "lo": 43.9,
+          "hi": 100.0
+        },
+        "claims_acc": {
+          "k": 3,
+          "n": 3,
+          "lo": 43.9,
+          "hi": 100.0
+        }
+      }
+    }
+  },
+  "rows": [
+    {
+      "id": "parallel-01",
+      "split": "parallel",
+      "message": "Quantas parcelas no crediário? E quando cai o dinheiro das vendas de ontem?",
+      "ms": 14200.3,
+      "turn_ms": 14128.2,
+      "business_date": "2026-11-04",
+      "expected_intent": "multi",
+      "checks": {
+        "intent": true,
+        "route": true,
+        "handoff": true,
+        "handoff_outcome": true,
+        "language": true,
+        "tools": true,
+        "numbers": true,
+        "claims": true,
+        "facts": true,
+        "resolved": true
+      },
+      "crash": null,
+      "got_intent": "multi",
+      "route": [
+        "router",
+        "faq",
+        "records"
+      ],
+      "replans": [],
+      "engine": "llm",
+      "answer": "O Crediário parcela em até 48x. O prazo máximo e os juros variam conforme o emissor do cartão (fontes: prod-crediario-02 e sup-duvidas-crediario-03). Para ver os juros, faça a simulação na maquininha: insira o cartão, informe o valor e escolha crédito > crediário. A simulação serve só para consulta e depende de análise de crédito. O emissor aprova a transação na hora da contratação.\n\nSuas vendas aprovadas de ontem somam R$ 745,50, em 4 vendas. Os valores caem assim:\n- **Pix:** 1 venda, R$ 60,00. Depositado em 03/11/2026 (D+0).\n- **Débito:** 2 vendas, R$ 205,50. Depositado em 04/11/2026 (D+1 útil).\n- **Crédito:** 1 venda, R$ 480,00. Cai em 03/12/2026 (D+30) e ainda não foi depositado.\n\nJá foram depositados R$ 265,50. Faltam R$ 480,00, que são o crédito.",
+      "source_ids": [
+        "sup-duvidas-crediario-03",
+        "prod-crediario-05",
+        "prod-crediario-02",
+        "prod-crediario-03",
+        "sup-duvidas-37"
+      ],
+      "sources": [
+        {
+          "id": "sup-duvidas-crediario-03",
+          "title": "Arquivos crediário - Getnet",
+          "url": "https://site.getnet.com.br/duvidas/crediario/"
+        },
+        {
+          "id": "prod-crediario-05",
+          "title": "Crediário - Getnet",
+          "url": "https://site.getnet.com.br/crediario/"
+        },
+        {
+          "id": "prod-crediario-02",
+          "title": "Crediário - Getnet",
+          "url": "https://site.getnet.com.br/crediario/"
+        },
+        {
+          "id": "prod-crediario-03",
+          "title": "Crediário - Getnet",
+          "url": "https://site.getnet.com.br/crediario/"
+        },
+        {
+          "id": "sup-duvidas-37",
+          "title": "Dúvidas e Perguntas Frequentes | Getnet",
+          "url": "https://site.getnet.com.br/duvidas/"
+        }
+      ],
+      "tool_calls": [
+        {
+          "name": "get_deposit_schedule",
+          "args": {
+            "period": "yesterday"
+          },
+          "ok": true
+        }
+      ],
+      "evidence": [
+        "Arquivos crediário - Getnet: Até quantas parcelas posso fazer e como sei os juros para informar ao meu cliente (portador do cartão)?\nCada emissor de cartão estabelece o limite de parcelas conforme as suas políticas de crédito. Os juros ao cliente (portador do cartão) serão visualizados por meio da simulação realizada diretamente na maquininha: Inserindo o cartão, incluindo o valor e a opção de pagamento na opção crédito > crediário. É possível também a impressão do comprovante da simulação na maquininha com bobina, assim o cliente conseguirá avaliar os juros e o valor final da compra. Lembrando que a simulação é apenas para consulta, sendo sujeita a análise de crédito, portanto, cabe ao emissor do cartão aprovar a transação no momento da contratação.",
+        "Crediário - Getnet: Selecione a opção 1. CREDITO e aperte o botão de confirmação.\nInsira o valor desejado e aperte o botão de confirmação.\nSelecione a opção 4. CREDIARIO e aperte o botão de confirmação.\nInsira o número de parcelas desejado e aperte o botão de confirmação.\nAguarde o processamento.\nEscolha a opção de parcelamento desejada e aperte o botão de confirmação.",
+        "Crediário - Getnet: para o seu cliente\nReceba o valor total de suas vendas:\nem até 2 dias úteis com taxa única e sem custo de antecipação\nOfereça parcelamento:\nem até 48x* para o seu cliente.\n*O prazo máximo e a taxa de juros do parcelamento variam de acordo com o emissor do cartão\nmais vendas para você, mais vantagens para o seu cliente\npara o seu negócio\npara o seu negócio\nO Crediário é mais uma opção de pagamento que você pode oferecer para vender mais. E você recebe o valor da venda em até 2 dias úteis e com taxa única¹, aumentando seu capital de giro!",
+        "Crediário - Getnet: para o seu cliente\npara o seu cliente\nCom o Crediário, ele pode parcelar em até 48 vezes² no cartão de crédito com taxas que cabem no bolso.\nVocê oferece mais comodidade e poder de compra.\n¹ Consulte a taxa de desconto (MDR) no Aplicativo Getnet Brasil ou no\nPortal do cliente\n²As taxas de juros podem variar de acordo com o emissor do cartão.",
+        "Dúvidas e Perguntas Frequentes | Getnet: Onde visualizo o pagamento e em que prazo eu recebo?\nOnde visualizo o pagamento e em que prazo eu recebo?\nAs informações de pagamento podem ser consultadas no Aplicativo Getnet (Vendas) e/ou no\nPortal do Cliente.\nTodas as vendas realizadas na modalidade Crediário são pagas em até 2 dias úteis após a captura da transação, de uma única vez, independente da quantidade de parcelas escolhida pelo portador. Lembrando que do valor da transação original é subtraído o valor da taxa de desconto.",
+        "{\"ok\": true, \"data\": {\"period\": \"yesterday\", \"today\": \"2026-11-04\", \"by_method\": [{\"method\": \"debit\", \"count\": 2, \"total\": 205.5, \"transactions\": [\"TX1001\", \"TX1003\"], \"deposit_dates\": [\"2026-11-04\"], \"rule\": \"D+1 útil\", \"already_deposited\": true}, {\"method\": \"credit\", \"count\": 1, \"total\": 480.0, \"transactions\": [\"TX1002\"], \"deposit_dates\": [\"2026-12-03\"], \"rule\": \"D+30\", \"already_deposited\": false}, {\"method\": \"pix\", \"count\": 1, \"total\": 60.0, \"transactions\": [\"TX1005\"], \"deposit_dates\": [\"2026-11-03\"], \"rule\": \"D+0\", \"already_deposited\": true}], \"by_deposit_date\": [{\"deposit_date\": \"2026-11-03\", \"total\": 60.0}, {\"deposit_date\": \"2026-11-04\", \"total\": 205.5}, {\"deposit_date\": \"2026-12-03\", \"total\": 480.0}], \"count\": 4, \"total\": 745.5, \"already_deposited_total\": 265.5, \"to_be_deposited_total\": 480.0}, \"calculado_em_codigo\": [{\"lista\": \"by_method\", \"itens\": 3, \"soma\": {\"total\": 745.5}, \"por_method\": {\"credit\": {\"itens\": 1, \"soma\": {\"total\": 480}}, \"debit\": {\"itens\": 1, \"soma\": {\"total\": 205.5}}, \"pix\": {\"itens\": 1, \"soma\": {\"total\": 60}}}}, {\"lista\": \"by_deposit_date\", \"itens\": 3, \"soma\": {\"total\": 745.5}, \"por_deposit_date\": {\"2026-11-03\": {\"itens\": 1, \"soma\": {\"total\": 60}}, \"2026-11-04\": {\"itens\": 1, \"soma\": {\"total\": 205.5}}, \"2026-12-03\": {\"itens\": 1, \"soma\": {\"total\": 480}}}}], \"nota_calculo\": \"Totais e contagens acima foram calculados em código: use-os, não some nem conte.\"}",
+        "[policy:capabilities] Capacidades e política de ações deste assistente (gerado do registro de ferramentas do sistema):\n- Consultas que o assistente executa na hora, só com dados do cliente autenticado: get_deposit_schedule (Vendas aprovadas por modalidade e quando cada valor cai (Pix D+0, débito D+1 útil, crédito D+30), com totais calculados.); list_transactions (Transações do cliente com código de recusa e o significado dele.); get_terminal_status (Situação das maquininhas do cliente (modelo, conexão, online; há quanto tempo offline).).\n- Ações que o assistente pode PROPOR; nada é executado antes de o cliente confirmar a proposta: open_support_ticket (Abre chamado técnico para uma maquininha. Exige confirmação do cliente.).\n- Ações de risco alto: exigem a confirmação do cliente E, depois, a aprovação de um atendente humano (operador) antes de executar: request_receivables_advance (Pede antecipação de recebíveis. Exige confirmação do cliente e aprovação de um atendente.).\n- Proposta de ação não confirmada expira em 15 minutos.\n- Encaminhar para um atendente humano: abre um caso com protocolo; a resposta do atendente aparece nesta mesma conversa.\n- Decisão sobre caso individual (contestação, bloqueio ou liberação de valor retido) é de um atendente humano; o assistente não decide.\n- Fora dessas ferramentas, o assistente não executa nenhuma ação no sistema.\n- Identificadores que as consultas aceitam: terminal_id = Id da maquininha (ex.: T1988B).\n- Valores que as consultas e ações aceitam (lista fechada: outro valor não é aceito): get_deposit_schedule — período (padrão últimos 7 dias): ontem | hoje | últimos 7 dias · list_transactions — situação (padrão todas): aprovadas | recusadas | todas; período (padrão últimos 7 dias): ontem | hoje | últimos 7 dias · open_support_ticket — motivo: sem conexão | sem sinal | erro de transação."
+      ],
+      "steps": [
+        {
+          "agent": "faq",
+          "status": "ok",
+          "reason": null,
+          "ms": 5143.7,
+          "tools": [],
+          "decided_by": "llm"
+        },
+        {
+          "agent": "records",
+          "status": "ok",
+          "reason": null,
+          "ms": 3954.9,
+          "tools": [
+            {
+              "name": "get_deposit_schedule",
+              "args": {
+                "period": "yesterday"
+              },
+              "ok": true,
+              "preview": "{\"ok\": true, \"data\": {\"period\": \"yesterday\", \"today\": \"2026-11-04\", \"by_method\": [{\"method\": \"debit\", \"count\": 2, \"total\": 205.5, \"transactions\": [\"TX1001\", \"TX1003\"], \"deposit_dates\": [\"2026-11-04\"],"
+            }
+          ],
+          "decided_by": "llm"
+        }
+      ],
+      "context": "- Arquivos crediário - Getnet: Até quantas parcelas posso fazer e como sei os juros para informar ao meu cliente (portador do cartão)?\nCada emissor de cartão estabelece o limite de parcelas conforme as suas políticas de crédito. Os juros ao cliente (portador do cartão) serão visualizados por meio da simulação realizada diretamente na maquininha: Inserindo o cartão, incluindo o valor e a opção de pagamento na opção crédito > crediário. É possível também a impressão do comprovante da simulação na maquininha com bobina, assim o cliente conseguirá avaliar os juros e o valor final da compra. Lembrando que a simulação é apenas para consulta, sendo sujeita a análise de crédito, portanto, cabe ao emissor do cartão aprovar a transação no momento da contratação.\n- Crediário - Getnet: Selecione a opção 1. CREDITO e aperte o botão de confirmação.\nInsira o valor desejado e aperte o botão de confirmação.\nSelecione a opção 4. CREDIARIO e aperte o botão de confirmação.\nInsira o número de parcelas desejado e aperte o botão de confirmação.\nAguarde o processamento.\nEscolha a opção de parcelamento desejada e aperte o botão de confirmação.\n- Crediário - Getnet: para o seu cliente\nReceba o valor total de suas vendas:\nem até 2 dias úteis com taxa única e sem custo de antecipação\nOfereça parcelamento:\nem até 48x* para o seu cliente.\n*O prazo máximo e a taxa de juros do parcelamento variam de acordo com o emissor do cartão\nmais vendas para você, mais vantagens para o seu cliente\npara o seu negócio\npara o seu negócio\nO Crediário é mais uma opção de pagamento que você pode oferecer para vender mais. E você recebe o valor da venda em até 2 dias úteis e com taxa única¹, aumentando seu capital de giro!\n- Crediário - Getnet: para o seu cliente\npara o seu cliente\nCom o Crediário, ele pode parcelar em até 48 vezes² no cartão de crédito com taxas que cabem no bolso.\nVocê oferece mais comodidade e poder de compra.\n¹ Consulte a taxa de desconto (MDR) no Aplicativo Getnet Brasil ou no\nPortal do cliente\n²As taxas de juros podem variar de acordo com o emissor do cartão.\n- Dúvidas e Perguntas Frequentes | Getnet: Onde visualizo o pagamento e em que prazo eu recebo?\nOnde visualizo o pagamento e em que prazo eu recebo?\nAs informações de pagamento podem ser consultadas no Aplicativo Getnet (Vendas) e/ou no\nPortal do Cliente.\nTodas as vendas realizadas na modalidade Crediário são pagas em até 2 dias úteis após a captura da transação, de uma única vez, independente da quantidade de parcelas escolhida pelo portador. Lembrando que do valor da transação original é subtraído o valor da taxa de desconto.\n- {\"ok\": true, \"data\": {\"period\": \"yesterday\", \"today\": \"2026-11-04\", \"by_method\": [{\"method\": \"debit\", \"count\": 2, \"total\": 205.5, \"transactions\": [\"TX1001\", \"TX1003\"], \"deposit_dates\": [\"2026-11-04\"], \"rule\": \"D+1 útil\", \"already_deposited\": true}, {\"method\": \"credit\", \"count\": 1, \"total\": 480.0, \"transactions\": [\"TX1002\"], \"deposit_dates\": [\"2026-12-03\"], \"rule\": \"D+30\", \"already_deposited\": false}, {\"method\": \"pix\", \"count\": 1, \"total\": 60.0, \"transactions\": [\"TX1005\"], \"deposit_dates\": [\"2026-11-03\"], \"rule\": \"D+0\", \"already_deposited\": true}], \"by_deposit_date\": [{\"deposit_date\": \"2026-11-03\", \"total\": 60.0}, {\"deposit_date\": \"2026-11-04\", \"total\": 205.5}, {\"deposit_date\": \"2026-12-03\", \"total\": 480.0}], \"count\": 4, \"total\": 745.5, \"already_deposited_total\": 265.5, \"to_be_deposited_total\": 480.0}, \"calculado_em_codigo\": [{\"lista\": \"by_method\", \"itens\": 3, \"soma\": {\"total\": 745.5}, \"por_method\": {\"credit\": {\"itens\": 1, \"soma\": {\"total\": 480}}, \"debit\": {\"itens\": 1, \"soma\": {\"total\": 205.5}}, \"pix\": {\"itens\": 1, \"soma\": {\"total\": 60}}}}, {\"lista\": \"by_deposit_date\", \"itens\": 3, \"soma\": {\"total\": 745.5}, \"por_deposit_date\": {\"2026-11-03\": {\"itens\": 1, \"soma\": {\"total\": 60}}, \"2026-11-04\": {\"itens\": 1, \"soma\": {\"total\": 205.5}}, \"2026-12-03\": {\"itens\": 1, \"soma\": {\"total\": 480}}}}], \"nota_calculo\": \"Totais e contagens acima foram calculados em código: use-os, não some nem conte.\"}\n- [policy:capabilities] Capacidades e política de ações deste assistente (gerado do registro de ferramentas do sistema):\n- Consultas que o assistente executa na hora, só com dados do cliente autenticado: get_deposit_schedule (Vendas aprovadas por modalidade e quando cada valor cai (Pix D+0, débito D+1 útil, crédito D+30), com totais calculados.); list_transactions (Transações do cliente com código de recusa e o significado dele.); get_terminal_status (Situação das maquininhas do cliente (modelo, conexão, online; há quanto tempo offline).).\n- Ações que o assistente pode PROPOR; nada é executado antes de o cliente confirmar a proposta: open_support_ticket (Abre chamado técnico para uma maquininha. Exige confirmação do cliente.).\n- Ações de risco alto: exigem a confirmação do cliente E, depois, a aprovação de um atendente humano (operador) antes de executar: request_receivables_advance (Pede antecipação de recebíveis. Exige confirmação do cliente e aprovação de um atendente.).\n- Proposta de ação não confirmada expira em 15 minutos.\n- Encaminhar para um atendente humano: abre um caso com protocolo; a resposta do atendente aparece nesta mesma conversa.\n- Decisão sobre caso individual (contestação, bloqueio ou liberação de valor retido) é de um atendente humano; o assistente não decide.\n- Fora dessas ferramentas, o assistente não executa nenhuma ação no sistema.\n- Identificadores que as consultas aceitam: terminal_id = Id da maquininha (ex.: T1988B).\n- Valores que as consultas e ações aceitam (lista fechada: outro valor não é aceito): get_deposit_schedule — período (padrão últimos 7 dias): ontem | hoje | últimos 7 dias · list_transactions — situação (padrão todas): aprovadas | recusadas | todas; período (padrão últimos 7 dias): ontem | hoje | últimos 7 dias · open_support_ticket — motivo: sem conexão | sem sinal | erro de transação.",
+      "unsupported_claims": [],
+      "claims_action": "none",
+      "expected_language": "pt",
+      "language_declared": "pt",
+      "language_detected": "pt",
+      "unsupported_numbers": [],
+      "user_id": "cliente1988",
+      "handoff_required": false,
+      "handoff_reason": null,
+      "pending_action": null,
+      "blocked": false,
+      "risk_flags": [],
+      "prompt_versions": {
+        "faq.md": "354be0df10",
+        "guardrail.md": "0cb0e155d7",
+        "records.md": "3da4ce8308",
+        "router.md": "88b3426d96",
+        "supervisor.md": "49e8c7ba17"
+      },
+      "cost_usd": 0.02882,
+      "facts_missing": [],
+      "run": 0
+    },
+    {
+      "id": "parallel-02",
+      "split": "parallel",
+      "message": "Can I use the Payment Link on WhatsApp? Also, is my T1988A terminal online?",
+      "ms": 15140.6,
+      "turn_ms": 15044.4,
+      "business_date": "2026-11-04",
+      "expected_intent": "multi",
+      "checks": {
+        "intent": true,
+        "route": true,
+        "handoff": true,
+        "handoff_outcome": true,
+        "language": true,
+        "tools": true,
+        "numbers": true,
+        "claims": true,
+        "facts": true,
+        "resolved": true
+      },
+      "crash": null,
+      "got_intent": "multi",
+      "route": [
+        "router",
+        "faq",
+        "records"
+      ],
+      "replans": [],
+      "engine": "llm",
+      "answer": "Yes to both.\n\n- **Payment Link on WhatsApp:** You can send the link to customers by WhatsApp, social media, email or SMS. The customer opens it, chooses the payment method and completes the purchase [sup-duvidas-link-de-pagamento-12, prod-link-de-pagamento-01].\n- **Terminal T1988A:** It's online. It's a Get Smart model, connected over Wi-Fi with an OK signal. Its last contact was on 2026-11-04 at 08:33.",
+      "source_ids": [
+        "sup-duvidas-link-de-pagamento-12",
+        "prod-link-de-pagamento-01",
+        "sup-duvidas-51",
+        "sup-duvidas-link-de-pagamento-10",
+        "sup-duvidas-link-de-pagamento-06"
+      ],
+      "sources": [
+        {
+          "id": "sup-duvidas-link-de-pagamento-12",
+          "title": "Arquivos Link de pagamento - Getnet",
+          "url": "https://site.getnet.com.br/duvidas/link-de-pagamento/"
+        },
+        {
+          "id": "prod-link-de-pagamento-01",
+          "title": "Getnet | Link de Pagamento: venda mais online | Getnet",
+          "url": "https://site.getnet.com.br/link-de-pagamento/"
+        },
+        {
+          "id": "sup-duvidas-51",
+          "title": "Dúvidas e Perguntas Frequentes | Getnet",
+          "url": "https://site.getnet.com.br/duvidas/"
+        },
+        {
+          "id": "sup-duvidas-link-de-pagamento-10",
+          "title": "Arquivos Link de pagamento - Getnet",
+          "url": "https://site.getnet.com.br/duvidas/link-de-pagamento/"
+        },
+        {
+          "id": "sup-duvidas-link-de-pagamento-06",
+          "title": "Arquivos Link de pagamento - Getnet",
+          "url": "https://site.getnet.com.br/duvidas/link-de-pagamento/"
+        }
+      ],
+      "tool_calls": [
+        {
+          "name": "get_terminal_status",
+          "args": {
+            "terminal_id": "T1988A"
+          },
+          "ok": true
+        }
+      ],
+      "evidence": [
+        "Arquivos Link de pagamento - Getnet: O vendedor pode enviar o Link de Pagamento para seus clientes por redes sociais, WhatsApp, email e SMS. O cliente clica no link, escolhe o método de pagamento e finaliza a compra.\nQuais os custos pra ter um Link de Pagamento?\nQuais os custos pra ter um Link de Pagamento?\nVocê paga pelo plano assinado, mais a taxa do cartão que depende do número de parcelas e em quantos dias você quer o dinheiro na conta.",
+        "Getnet | Link de Pagamento: venda mais online | Getnet: Prepare-se com Link de Pagamento para Black Friday\nLink personalizável\nSegurança antifraude\nAceite débito, crédito, Pix, Wallet e boleto\nQuero contratar\nBenefícios para você vender mais com Link de Pagamento na Black Friday\nExpanda seu negócio\nVenda para estrangeiros com documento de identificação (RNE) no pagamento\nVenda de onde estiver\nFaça vendas usando o WhatsApp ou sua rede social\nNovo · Link completo\nInsira diversos produtos no mesmo carrinho\nNovo · Personalizável\nPersonalize o link com a imagem do produto\nConte com a segurança do Antifraude da Getnet\nVocê pode optar por deixar seu comprador escolher entre débito, crédito, Pix, Wallet e boleto\nMais opções de venda\nCom o Link de Pagamento inicial você pode vender também através do aplicativo com o antifraude da Getnet",
+        "Dúvidas e Perguntas Frequentes | Getnet: O cliente já tem os pacotes recorrência ou loja virtual. Como ele pode usar o Link de pagamento?\nTodos os pacotes do e-commerce dão direito ao uso do link de Pagamento.\nO lojista já tem Getnet no mundo físico, ele precisa ser avaliado novamente por riscos e prevenção?\nO lojista já tem Getnet no mundo físico, ele precisa ser avaliado novamente por riscos e prevenção?",
+        "Arquivos Link de pagamento - Getnet: Quais são as formas de pagamento que o Link de Pagamento aceita?\nCartão de crédito, débito, QR Code e Pix.\nO seu cliente recebe comprovante?\nO seu cliente recebe comprovante?\nSuper! Na mesma hora do pagamento ele já consegue realizar o download do comprovante.\nO que o portador do cartão verá quando receber o link?",
+        "Arquivos Link de pagamento - Getnet: Onde o lojista consegue criar e fazer a gestão dos links gerados?\nOnde o lojista consegue criar e fazer a gestão dos links gerados?\nDentro do portal minha conta e via API.\nÉ obrigatório o uso de antifraude para transações Link de Pagamento? Mesmo para os pacotes modulares?\nÉ obrigatório o uso de antifraude para transações Link de Pagamento? Mesmo para os pacotes modulares?",
+        "{\"ok\": true, \"data\": {\"terminals\": [{\"terminal_id\": \"T1988A\", \"model\": \"Get Smart\", \"connection\": \"wifi\", \"online\": true, \"signal\": \"ok\", \"last_contact\": \"2026-11-04T08:33\"}], \"count\": 1, \"offline_count\": 0}, \"calculado_em_codigo\": [{\"lista\": \"terminals\", \"itens\": 1}], \"nota_calculo\": \"Totais e contagens acima foram calculados em código: use-os, não some nem conte.\"}",
+        "[policy:capabilities] Capabilities and action policy of this assistant (generated from the system's tool registry):\n- Lookups the assistant runs immediately, only on the authenticated customer's data: get_deposit_schedule (Vendas aprovadas por modalidade e quando cada valor cai (Pix D+0, débito D+1 útil, crédito D+30), com totais calculados.); list_transactions (Transações do cliente com código de recusa e o significado dele.); get_terminal_status (Situação das maquininhas do cliente (modelo, conexão, online; há quanto tempo offline).).\n- Actions the assistant can PROPOSE; nothing runs until the customer confirms the proposal: open_support_ticket (Abre chamado técnico para uma maquininha. Exige confirmação do cliente.).\n- High-risk actions: they need the customer's confirmation AND then the approval of a human agent (operator) before they run: request_receivables_advance (Pede antecipação de recebíveis. Exige confirmação do cliente e aprovação de um atendente.).\n- An action proposal that is not confirmed expires after 15 minutes.\n- Hand the case to a human agent: opens a case with a ticket number; the agent's reply shows up in this same conversation.\n- A decision on an individual case (dispute, block or release of a held amount) belongs to a human agent; the assistant does not decide it.\n- Apart from these tools, the assistant does not carry out any action in the system.\n- Identifiers the lookups accept: terminal_id = Id da maquininha (ex.: T1988B).\n- Values the lookups and actions accept (closed list: no other value is accepted): get_deposit_schedule — period (default last 7 days): yesterday | today | last 7 days · list_transactions — status (default all): approved | declined | all; period (default last 7 days): yesterday | today | last 7 days · open_support_ticket — reason: no connection | no signal | transaction error."
+      ],
+      "steps": [
+        {
+          "agent": "faq",
+          "status": "ok",
+          "reason": null,
+          "ms": 9181.4,
+          "tools": [],
+          "decided_by": "llm"
+        },
+        {
+          "agent": "records",
+          "status": "ok",
+          "reason": null,
+          "ms": 2936.5,
+          "tools": [
+            {
+              "name": "get_terminal_status",
+              "args": {
+                "terminal_id": "T1988A"
+              },
+              "ok": true,
+              "preview": "{\"ok\": true, \"data\": {\"terminals\": [{\"terminal_id\": \"T1988A\", \"model\": \"Get Smart\", \"connection\": \"wifi\", \"online\": true, \"signal\": \"ok\", \"last_contact\": \"2026-11-04T08:33\"}], \"count\": 1, \"offline_cou"
+            }
+          ],
+          "decided_by": "llm"
+        }
+      ],
+      "context": "- Arquivos Link de pagamento - Getnet: O vendedor pode enviar o Link de Pagamento para seus clientes por redes sociais, WhatsApp, email e SMS. O cliente clica no link, escolhe o método de pagamento e finaliza a compra.\nQuais os custos pra ter um Link de Pagamento?\nQuais os custos pra ter um Link de Pagamento?\nVocê paga pelo plano assinado, mais a taxa do cartão que depende do número de parcelas e em quantos dias você quer o dinheiro na conta.\n- Getnet | Link de Pagamento: venda mais online | Getnet: Prepare-se com Link de Pagamento para Black Friday\nLink personalizável\nSegurança antifraude\nAceite débito, crédito, Pix, Wallet e boleto\nQuero contratar\nBenefícios para você vender mais com Link de Pagamento na Black Friday\nExpanda seu negócio\nVenda para estrangeiros com documento de identificação (RNE) no pagamento\nVenda de onde estiver\nFaça vendas usando o WhatsApp ou sua rede social\nNovo · Link completo\nInsira diversos produtos no mesmo carrinho\nNovo · Personalizável\nPersonalize o link com a imagem do produto\nConte com a segurança do Antifraude da Getnet\nVocê pode optar por deixar seu comprador escolher entre débito, crédito, Pix, Wallet e boleto\nMais opções de venda\nCom o Link de Pagamento inicial você pode vender também através do aplicativo com o antifraude da Getnet\n- Dúvidas e Perguntas Frequentes | Getnet: O cliente já tem os pacotes recorrência ou loja virtual. Como ele pode usar o Link de pagamento?\nTodos os pacotes do e-commerce dão direito ao uso do link de Pagamento.\nO lojista já tem Getnet no mundo físico, ele precisa ser avaliado novamente por riscos e prevenção?\nO lojista já tem Getnet no mundo físico, ele precisa ser avaliado novamente por riscos e prevenção?\n- Arquivos Link de pagamento - Getnet: Quais são as formas de pagamento que o Link de Pagamento aceita?\nCartão de crédito, débito, QR Code e Pix.\nO seu cliente recebe comprovante?\nO seu cliente recebe comprovante?\nSuper! Na mesma hora do pagamento ele já consegue realizar o download do comprovante.\nO que o portador do cartão verá quando receber o link?\n- Arquivos Link de pagamento - Getnet: Onde o lojista consegue criar e fazer a gestão dos links gerados?\nOnde o lojista consegue criar e fazer a gestão dos links gerados?\nDentro do portal minha conta e via API.\nÉ obrigatório o uso de antifraude para transações Link de Pagamento? Mesmo para os pacotes modulares?\nÉ obrigatório o uso de antifraude para transações Link de Pagamento? Mesmo para os pacotes modulares?\n- {\"ok\": true, \"data\": {\"terminals\": [{\"terminal_id\": \"T1988A\", \"model\": \"Get Smart\", \"connection\": \"wifi\", \"online\": true, \"signal\": \"ok\", \"last_contact\": \"2026-11-04T08:33\"}], \"count\": 1, \"offline_count\": 0}, \"calculado_em_codigo\": [{\"lista\": \"terminals\", \"itens\": 1}], \"nota_calculo\": \"Totais e contagens acima foram calculados em código: use-os, não some nem conte.\"}\n- [policy:capabilities] Capabilities and action policy of this assistant (generated from the system's tool registry):\n- Lookups the assistant runs immediately, only on the authenticated customer's data: get_deposit_schedule (Vendas aprovadas por modalidade e quando cada valor cai (Pix D+0, débito D+1 útil, crédito D+30), com totais calculados.); list_transactions (Transações do cliente com código de recusa e o significado dele.); get_terminal_status (Situação das maquininhas do cliente (modelo, conexão, online; há quanto tempo offline).).\n- Actions the assistant can PROPOSE; nothing runs until the customer confirms the proposal: open_support_ticket (Abre chamado técnico para uma maquininha. Exige confirmação do cliente.).\n- High-risk actions: they need the customer's confirmation AND then the approval of a human agent (operator) before they run: request_receivables_advance (Pede antecipação de recebíveis. Exige confirmação do cliente e aprovação de um atendente.).\n- An action proposal that is not confirmed expires after 15 minutes.\n- Hand the case to a human agent: opens a case with a ticket number; the agent's reply shows up in this same conversation.\n- A decision on an individual case (dispute, block or release of a held amount) belongs to a human agent; the assistant does not decide it.\n- Apart from these tools, the assistant does not carry out any action in the system.\n- Identifiers the lookups accept: terminal_id = Id da maquininha (ex.: T1988B).\n- Values the lookups and actions accept (closed list: no other value is accepted): get_deposit_schedule — period (default last 7 days): yesterday | today | last 7 days · list_transactions — status (default all): approved | declined | all; period (default last 7 days): yesterday | today | last 7 days · open_support_ticket — reason: no connection | no signal | transaction error.",
+      "unsupported_claims": [],
+      "claims_action": "none",
+      "expected_language": "en",
+      "language_declared": "en",
+      "language_detected": "en",
+      "unsupported_numbers": [],
+      "user_id": "cliente1988",
+      "handoff_required": false,
+      "handoff_reason": null,
+      "pending_action": null,
+      "blocked": false,
+      "risk_flags": [],
+      "prompt_versions": {
+        "faq.md": "354be0df10",
+        "guardrail.md": "0cb0e155d7",
+        "records.md": "3da4ce8308",
+        "router.md": "88b3426d96",
+        "supervisor.md": "49e8c7ba17"
+      },
+      "cost_usd": 0.037748,
+      "facts_missing": [],
+      "run": 0
+    },
+    {
+      "id": "parallel-03",
+      "split": "parallel",
+      "message": "Quanto custa o aluguel da Get Smart? E quais vendas minhas foram recusadas hoje?",
+      "ms": 17343.4,
+      "turn_ms": 17231.4,
+      "business_date": "2026-11-04",
+      "expected_intent": "multi",
+      "checks": {
+        "intent": true,
+        "route": true,
+        "handoff": true,
+        "handoff_outcome": true,
+        "language": true,
+        "tools": true,
+        "numbers": true,
+        "claims": true,
+        "facts": true,
+        "resolved": true
+      },
+      "crash": null,
+      "got_intent": "multi",
+      "route": [
+        "router",
+        "faq",
+        "records"
+      ],
+      "replans": [],
+      "engine": "llm",
+      "answer": "O aluguel da Get Smart custa R$ 129,90/mês, segundo a página de maquininhas da Getnet [prod-maquininhas-04]. Hoje (04/11/2026) você teve 2 vendas recusadas, somando R$ 285,00. As duas foram na maquininha T1988A:\n- **TX1007**, 09:20, crédito, R$ 210,00. Código 51: saldo insuficiente.\n- **TX1008**, 09:45, débito, R$ 75,00. Código 05: não autorizada pelo emissor.\n\nA página também mostra descontos no aluguel que dependem do faturamento do mês e dos requisitos da oferta [prod-get-tap-05]. As fontes não trazem esses requisitos nem o valor do desconto para a Get Smart. Se quiser, posso encaminhar você a um atendente humano.",
+      "source_ids": [
+        "sup-duvidas-get-smart-01",
+        "prod-maquininhas-04",
+        "prod-get-tap-05",
+        "sup-duvidas-get-smart-10",
+        "sup-duvidas-01"
+      ],
+      "sources": [
+        {
+          "id": "sup-duvidas-get-smart-01",
+          "title": "Arquivos Get Smart - Getnet",
+          "url": "https://site.getnet.com.br/duvidas/get-smart/"
+        },
+        {
+          "id": "prod-maquininhas-04",
+          "title": "Getnet | Maquininha de cartão: Melhores taxas e opções grátis",
+          "url": "https://site.getnet.com.br/todas-as-maquininhas/"
+        },
+        {
+          "id": "prod-get-tap-05",
+          "title": "Getnet | Maquininha no celular: Receba pelo celular- Getnet",
+          "url": "https://site.getnet.com.br/get-tap/"
+        },
+        {
+          "id": "sup-duvidas-get-smart-10",
+          "title": "Arquivos Get Smart - Getnet",
+          "url": "https://site.getnet.com.br/duvidas/get-smart/"
+        },
+        {
+          "id": "sup-duvidas-01",
+          "title": "Dúvidas e Perguntas Frequentes | Getnet",
+          "url": "https://site.getnet.com.br/duvidas/"
+        }
+      ],
+      "tool_calls": [
+        {
+          "name": "list_transactions",
+          "args": {
+            "period": "today",
+            "status": "declined"
+          },
+          "ok": true
+        }
+      ],
+      "evidence": [
+        "Arquivos Get Smart - Getnet: Como realizo o cancelamento de uma venda da Get Smart realizada em dias anteriores?\nComo realizo o cancelamento de uma venda da Get Smart realizada em dias anteriores?\nSomente entrando em contato com nossa central de atendimento no telefone 4003-4000.\nFiz uma venda duplicada na minha Get Smart, em menos de 5 minutos, preciso realizar o estorno?",
+        "Getnet | Maquininha de cartão: Melhores taxas e opções grátis: Venda pelo celular\nR$ 0,00/mês · Get Clássica · R$ 79,90/mês · Get Smart · R$ 129,90/mês\nAcelere suas vendas na Black Friday: ofertas especiais em maquininhas selecionadas\nSelecione sua faixa de faturamento e encontre as melhores taxas para sua empresa\nAté R$ 10 mil · NOVO\nAcima de R$ 10 mil\nAcima de R$ 20 mil\nAcima de R$ 40 mil\nAcima de R$ 80 mil\n0,85%Débito · 2,69%Crédito · 9,07% ˅ · Crédito 6x\nBaseado em seu faturamento, você tem R$ 319,60 de desconto no aluguel das maquininhas\nComo você prefere continuar?",
+        "Getnet | Maquininha no celular: Receba pelo celular- Getnet: Pesquise por \"Sobre o dispositivo\" e localize a \"Versão do Android\"\nCadastre-se grátis agora\nA oferta é válida para a Get Mini, Get Clássica e Get Smart, e para novos clientes;\nO valor do desconto no aluguel do mês vigente será concedido com base no faturamento do mesmo mês. Quanto maior for o faturamento, maior será o desconto aplicado;\nPara receber o desconto no mês, é necessário cumprir com os requisitos da oferta. Caso não cumpra, não será concedido o desconto no aluguel do mês vigente. Porém você continuará participando da promoção até o fim da oferta.",
+        "Arquivos Get Smart - Getnet: O que é a Get Smart?\nO que é a Get Smart?\nA Get Smart é uma máquina de cartões inteligente. Com ela, seu dia a dia fica mais simples, fácil e muito mais digital. Você pode controlar o estoque, fazer pedidos, fechar conta, embarcar cardápio, emitir nota fiscal, tudo diretamente na máquina. A Get Smart permite que você integre o terminal com o sistema de seu estabelecimento e assim terá todos os aparelhos que seu negócio precisa em um único lugar.",
+        "Dúvidas e Perguntas Frequentes | Getnet: Está com dúvidas?\nnós podemos te ajudar!\nHá alguma taxa extra para usar o Aplicativo Getnet Brasil?\nComo faço para baixar o Aplicativo Getnet Brasil?\nR: Baixe através da\nApp Store · ou na · Play Store\n, de acordo com o seu celular.\nconfira as dúvidas\ndas maquininhas\nComo realizo o cancelamento de uma venda da Get Smart realizada em dias anteriores?",
+        "{\"ok\": true, \"data\": {\"period\": \"today\", \"status\": \"declined\", \"today\": \"2026-11-04\", \"transactions\": [{\"transaction_id\": \"TX1007\", \"time\": \"09:20\", \"method\": \"credit\", \"amount\": 210.0, \"status\": \"declined\", \"decline_code\": \"51\", \"terminal_id\": \"T1988A\", \"date\": \"2026-11-04\", \"decline_meaning\": \"saldo insuficiente\", \"decline_meaning_en\": \"insufficient funds\"}, {\"transaction_id\": \"TX1008\", \"time\": \"09:45\", \"method\": \"debit\", \"amount\": 75.0, \"status\": \"declined\", \"decline_code\": \"05\", \"terminal_id\": \"T1988A\", \"date\": \"2026-11-04\", \"decline_meaning\": \"não autorizada pelo emissor\", \"decline_meaning_en\": \"not authorized by the issuer\"}], \"count\": 2, \"approved_count\": 0, \"approved_total\": 0.0, \"declined_count\": 2, \"declined_total\": 285.0}, \"needs\": [{\"agent\": \"faq\", \"why\": \"venda recusada: o que fazer vem da central de ajuda\", \"hint\": \"transação recusada código de recusa\"}], \"calculado_em_codigo\": [{\"lista\": \"transactions\", \"itens\": 2, \"soma\": {\"amount\": 285}, \"por_method\": {\"credit\": {\"itens\": 1, \"soma\": {\"amount\": 210}}, \"debit\": {\"itens\": 1, \"soma\": {\"amount\": 75}}}}], \"nota_calculo\": \"Totais e contagens acima foram calculados em código: use-os, não some nem conte.\"}",
+        "[policy:capabilities] Capacidades e política de ações deste assistente (gerado do registro de ferramentas do sistema):\n- Consultas que o assistente executa na hora, só com dados do cliente autenticado: get_deposit_schedule (Vendas aprovadas por modalidade e quando cada valor cai (Pix D+0, débito D+1 útil, crédito D+30), com totais calculados.); list_transactions (Transações do cliente com código de recusa e o significado dele.); get_terminal_status (Situação das maquininhas do cliente (modelo, conexão, online; há quanto tempo offline).).\n- Ações que o assistente pode PROPOR; nada é executado antes de o cliente confirmar a proposta: open_support_ticket (Abre chamado técnico para uma maquininha. Exige confirmação do cliente.).\n- Ações de risco alto: exigem a confirmação do cliente E, depois, a aprovação de um atendente humano (operador) antes de executar: request_receivables_advance (Pede antecipação de recebíveis. Exige confirmação do cliente e aprovação de um atendente.).\n- Proposta de ação não confirmada expira em 15 minutos.\n- Encaminhar para um atendente humano: abre um caso com protocolo; a resposta do atendente aparece nesta mesma conversa.\n- Decisão sobre caso individual (contestação, bloqueio ou liberação de valor retido) é de um atendente humano; o assistente não decide.\n- Fora dessas ferramentas, o assistente não executa nenhuma ação no sistema.\n- Identificadores que as consultas aceitam: terminal_id = Id da maquininha (ex.: T1988B).\n- Valores que as consultas e ações aceitam (lista fechada: outro valor não é aceito): get_deposit_schedule — período (padrão últimos 7 dias): ontem | hoje | últimos 7 dias · list_transactions — situação (padrão todas): aprovadas | recusadas | todas; período (padrão últimos 7 dias): ontem | hoje | últimos 7 dias · open_support_ticket — motivo: sem conexão | sem sinal | erro de transação."
+      ],
+      "steps": [
+        {
+          "agent": "faq",
+          "status": "ok",
+          "reason": null,
+          "ms": 7905.9,
+          "tools": [],
+          "decided_by": "llm"
+        },
+        {
+          "agent": "records",
+          "status": "ok",
+          "reason": null,
+          "ms": 3673.5,
+          "tools": [
+            {
+              "name": "list_transactions",
+              "args": {
+                "period": "today",
+                "status": "declined"
+              },
+              "ok": true,
+              "preview": "{\"ok\": true, \"data\": {\"period\": \"today\", \"status\": \"declined\", \"today\": \"2026-11-04\", \"transactions\": [{\"transaction_id\": \"TX1007\", \"time\": \"09:20\", \"method\": \"credit\", \"amount\": 210.0, \"status\": \"dec"
+            }
+          ],
+          "decided_by": "llm",
+          "needs": [
+            {
+              "agent": "faq",
+              "why": "venda recusada: o que fazer vem da central de ajuda",
+              "outcome": "ran"
+            }
+          ]
+        }
+      ],
+      "context": "- Arquivos Get Smart - Getnet: Como realizo o cancelamento de uma venda da Get Smart realizada em dias anteriores?\nComo realizo o cancelamento de uma venda da Get Smart realizada em dias anteriores?\nSomente entrando em contato com nossa central de atendimento no telefone 4003-4000.\nFiz uma venda duplicada na minha Get Smart, em menos de 5 minutos, preciso realizar o estorno?\n- Getnet | Maquininha de cartão: Melhores taxas e opções grátis: Venda pelo celular\nR$ 0,00/mês · Get Clássica · R$ 79,90/mês · Get Smart · R$ 129,90/mês\nAcelere suas vendas na Black Friday: ofertas especiais em maquininhas selecionadas\nSelecione sua faixa de faturamento e encontre as melhores taxas para sua empresa\nAté R$ 10 mil · NOVO\nAcima de R$ 10 mil\nAcima de R$ 20 mil\nAcima de R$ 40 mil\nAcima de R$ 80 mil\n0,85%Débito · 2,69%Crédito · 9,07% ˅ · Crédito 6x\nBaseado em seu faturamento, você tem R$ 319,60 de desconto no aluguel das maquininhas\nComo você prefere continuar?\n- Getnet | Maquininha no celular: Receba pelo celular- Getnet: Pesquise por \"Sobre o dispositivo\" e localize a \"Versão do Android\"\nCadastre-se grátis agora\nA oferta é válida para a Get Mini, Get Clássica e Get Smart, e para novos clientes;\nO valor do desconto no aluguel do mês vigente será concedido com base no faturamento do mesmo mês. Quanto maior for o faturamento, maior será o desconto aplicado;\nPara receber o desconto no mês, é necessário cumprir com os requisitos da oferta. Caso não cumpra, não será concedido o desconto no aluguel do mês vigente. Porém você continuará participando da promoção até o fim da oferta.\n- Arquivos Get Smart - Getnet: O que é a Get Smart?\nO que é a Get Smart?\nA Get Smart é uma máquina de cartões inteligente. Com ela, seu dia a dia fica mais simples, fácil e muito mais digital. Você pode controlar o estoque, fazer pedidos, fechar conta, embarcar cardápio, emitir nota fiscal, tudo diretamente na máquina. A Get Smart permite que você integre o terminal com o sistema de seu estabelecimento e assim terá todos os aparelhos que seu negócio precisa em um único lugar.\n- Dúvidas e Perguntas Frequentes | Getnet: Está com dúvidas?\nnós podemos te ajudar!\nHá alguma taxa extra para usar o Aplicativo Getnet Brasil?\nComo faço para baixar o Aplicativo Getnet Brasil?\nR: Baixe através da\nApp Store · ou na · Play Store\n, de acordo com o seu celular.\nconfira as dúvidas\ndas maquininhas\nComo realizo o cancelamento de uma venda da Get Smart realizada em dias anteriores?\n- {\"ok\": true, \"data\": {\"period\": \"today\", \"status\": \"declined\", \"today\": \"2026-11-04\", \"transactions\": [{\"transaction_id\": \"TX1007\", \"time\": \"09:20\", \"method\": \"credit\", \"amount\": 210.0, \"status\": \"declined\", \"decline_code\": \"51\", \"terminal_id\": \"T1988A\", \"date\": \"2026-11-04\", \"decline_meaning\": \"saldo insuficiente\", \"decline_meaning_en\": \"insufficient funds\"}, {\"transaction_id\": \"TX1008\", \"time\": \"09:45\", \"method\": \"debit\", \"amount\": 75.0, \"status\": \"declined\", \"decline_code\": \"05\", \"terminal_id\": \"T1988A\", \"date\": \"2026-11-04\", \"decline_meaning\": \"não autorizada pelo emissor\", \"decline_meaning_en\": \"not authorized by the issuer\"}], \"count\": 2, \"approved_count\": 0, \"approved_total\": 0.0, \"declined_count\": 2, \"declined_total\": 285.0}, \"needs\": [{\"agent\": \"faq\", \"why\": \"venda recusada: o que fazer vem da central de ajuda\", \"hint\": \"transação recusada código de recusa\"}], \"calculado_em_codigo\": [{\"lista\": \"transactions\", \"itens\": 2, \"soma\": {\"amount\": 285}, \"por_method\": {\"credit\": {\"itens\": 1, \"soma\": {\"amount\": 210}}, \"debit\": {\"itens\": 1, \"soma\": {\"amount\": 75}}}}], \"nota_calculo\": \"Totais e contagens acima foram calculados em código: use-os, não some nem conte.\"}\n- [policy:capabilities] Capacidades e política de ações deste assistente (gerado do registro de ferramentas do sistema):\n- Consultas que o assistente executa na hora, só com dados do cliente autenticado: get_deposit_schedule (Vendas aprovadas por modalidade e quando cada valor cai (Pix D+0, débito D+1 útil, crédito D+30), com totais calculados.); list_transactions (Transações do cliente com código de recusa e o significado dele.); get_terminal_status (Situação das maquininhas do cliente (modelo, conexão, online; há quanto tempo offline).).\n- Ações que o assistente pode PROPOR; nada é executado antes de o cliente confirmar a proposta: open_support_ticket (Abre chamado técnico para uma maquininha. Exige confirmação do cliente.).\n- Ações de risco alto: exigem a confirmação do cliente E, depois, a aprovação de um atendente humano (operador) antes de executar: request_receivables_advance (Pede antecipação de recebíveis. Exige confirmação do cliente e aprovação de um atendente.).\n- Proposta de ação não confirmada expira em 15 minutos.\n- Encaminhar para um atendente humano: abre um caso com protocolo; a resposta do atendente aparece nesta mesma conversa.\n- Decisão sobre caso individual (contestação, bloqueio ou liberação de valor retido) é de um atendente humano; o assistente não decide.\n- Fora dessas ferramentas, o assistente não executa nenhuma ação no sistema.\n- Identificadores que as consultas aceitam: terminal_id = Id da maquininha (ex.: T1988B).\n- Valores que as consultas e ações aceitam (lista fechada: outro valor não é aceito): get_deposit_schedule — período (padrão últimos 7 dias): ontem | hoje | últimos 7 dias · list_transactions — situação (padrão todas): aprovadas | recusadas | todas; período (padrão últimos 7 dias): ontem | hoje | últimos 7 dias · open_support_ticket — motivo: sem conexão | sem sinal | erro de transação.",
+      "unsupported_claims": [],
+      "claims_action": "none",
+      "expected_language": "pt",
+      "language_declared": "pt",
+      "language_detected": "pt",
+      "unsupported_numbers": [],
+      "user_id": "cliente1988",
+      "handoff_required": false,
+      "handoff_reason": null,
+      "pending_action": null,
+      "blocked": false,
+      "risk_flags": [],
+      "prompt_versions": {
+        "faq.md": "354be0df10",
+        "guardrail.md": "0cb0e155d7",
+        "records.md": "3da4ce8308",
+        "router.md": "88b3426d96",
+        "supervisor.md": "49e8c7ba17"
+      },
+      "cost_usd": 0.033117,
+      "facts_missing": [],
+      "run": 0
+    }
+  ],
+  "failures": [],
+  "stability": {
+    "runs": 1,
+    "pass_at_1": 1.0,
+    "pass_hat_k": 1.0,
+    "ci": {
+      "pass_at_1": {
+        "k": 3,
+        "n": 3,
+        "lo": 43.9,
+        "hi": 100.0
+      },
+      "pass_hat_k": {
+        "k": 3,
+        "n": 3,
+        "lo": 43.9,
+        "hi": 100.0
+      }
+    },
+    "unstable": [],
+    "by_case": {
+      "parallel-01": {
+        "passes": 1,
+        "runs": 1
+      },
+      "parallel-02": {
+        "passes": 1,
+        "runs": 1
+      },
+      "parallel-03": {
+        "passes": 1,
+        "runs": 1
+      }
+    }
+  },
+  "failure_matrix": {
+    "by_check": {},
+    "intent_confusion": {},
+    "intent_matrix": {
+      "multi": {
+        "multi": 3
+      }
+    }
+  },
+  "memory_routing": {},
+  "gate_calibration": {
+    "positives": 47,
+    "negatives": 20,
+    "excluded_negatives": [],
+    "by_language": {
+      "current": {
+        "en": {
+          "positives": 7,
+          "negatives": 8,
+          "pos_answered": 0.714,
+          "neg_refused": 0.625,
+          "pos_ci": {
+            "k": 5,
+            "n": 7,
+            "lo": 35.9,
+            "hi": 91.8
+          },
+          "neg_ci": {
+            "k": 5,
+            "n": 8,
+            "lo": 30.6,
+            "hi": 86.3
+          }
+        },
+        "pt": {
+          "positives": 40,
+          "negatives": 12,
+          "pos_answered": 0.9,
+          "neg_refused": 0.0,
+          "pos_ci": {
+            "k": 36,
+            "n": 40,
+            "lo": 76.9,
+            "hi": 96.0
+          },
+          "neg_ci": {
+            "k": 0,
+            "n": 12,
+            "lo": 0.0,
+            "hi": 24.2
+          }
+        }
+      },
+      "best": {
+        "en": {
+          "positives": 7,
+          "negatives": 8,
+          "pos_answered": 0.429,
+          "neg_refused": 1.0,
+          "pos_ci": {
+            "k": 3,
+            "n": 7,
+            "lo": 15.8,
+            "hi": 75.0
+          },
+          "neg_ci": {
+            "k": 8,
+            "n": 8,
+            "lo": 67.6,
+            "hi": 100.0
+          }
+        },
+        "pt": {
+          "positives": 40,
+          "negatives": 12,
+          "pos_answered": 0.9,
+          "neg_refused": 0.75,
+          "pos_ci": {
+            "k": 36,
+            "n": 40,
+            "lo": 76.9,
+            "hi": 96.0
+          },
+          "neg_ci": {
+            "k": 9,
+            "n": 12,
+            "lo": 46.8,
+            "hi": 91.1
+          }
+        }
+      }
+    },
+    "customer_languages": [
+      "en",
+      "pt"
+    ],
+    "warnings": [],
+    "criterion": "max pos_answered com neg_refused >= 0.85; empate → menor limiar",
+    "neg_refusal_min": 0.85,
+    "current": 0.5,
+    "current_source": "MIN_SCORE",
+    "at_current": {
+      "threshold": 0.5,
+      "pos_answered": 0.872,
+      "neg_refused": 0.25,
+      "balanced_acc": 0.561,
+      "meets_floor": false,
+      "pos_ci": {
+        "k": 41,
+        "n": 47,
+        "lo": 74.8,
+        "hi": 94.0
+      },
+      "neg_ci": {
+        "k": 5,
+        "n": 20,
+        "lo": 11.2,
+        "hi": 46.9
+      }
+    },
+    "best": {
+      "threshold": 7.615,
+      "pos_answered": 0.83,
+      "neg_refused": 0.85,
+      "balanced_acc": 0.84,
+      "meets_floor": true,
+      "pos_ci": {
+        "k": 39,
+        "n": 47,
+        "lo": 69.9,
+        "hi": 91.1
+      },
+      "neg_ci": {
+        "k": 17,
+        "n": 20,
+        "lo": 64.0,
+        "hi": 94.8
+      }
+    },
+    "table": [
+      {
+        "threshold": 0.0,
+        "pos_answered": 0.872,
+        "neg_refused": 0.25,
+        "balanced_acc": 0.561,
+        "meets_floor": false,
+        "pos_ci": {
+          "k": 41,
+          "n": 47,
+          "lo": 74.8,
+          "hi": 94.0
+        },
+        "neg_ci": {
+          "k": 5,
+          "n": 20,
+          "lo": 11.2,
+          "hi": 46.9
+        }
+      },
+      {
+        "threshold": 0.5,
+        "pos_answered": 0.872,
+        "neg_refused": 0.25,
+        "balanced_acc": 0.561,
+        "meets_floor": false,
+        "pos_ci": {
+          "k": 41,
+          "n": 47,
+          "lo": 74.8,
+          "hi": 94.0
+        },
+        "neg_ci": {
+          "k": 5,
+          "n": 20,
+          "lo": 11.2,
+          "hi": 46.9
+        }
+      },
+      {
+        "threshold": 2.999,
+        "pos_answered": 0.872,
+        "neg_refused": 0.25,
+        "balanced_acc": 0.561,
+        "meets_floor": false,
+        "pos_ci": {
+          "k": 41,
+          "n": 47,
+          "lo": 74.8,
+          "hi": 94.0
+        },
+        "neg_ci": {
+          "k": 5,
+          "n": 20,
+          "lo": 11.2,
+          "hi": 46.9
+        }
+      },
+      {
+        "threshold": 3.011,
+        "pos_answered": 0.872,
+        "neg_refused": 0.25,
+        "balanced_acc": 0.561,
+        "meets_floor": false,
+        "pos_ci": {
+          "k": 41,
+          "n": 47,
+          "lo": 74.8,
+          "hi": 94.0
+        },
+        "neg_ci": {
+          "k": 5,
+          "n": 20,
+          "lo": 11.2,
+          "hi": 46.9
+        }
+      },
+      {
+        "threshold": 3.017,
+        "pos_answered": 0.872,
+        "neg_refused": 0.25,
+        "balanced_acc": 0.561,
+        "meets_floor": false,
+        "pos_ci": {
+          "k": 41,
+          "n": 47,
+          "lo": 74.8,
+          "hi": 94.0
+        },
+        "neg_ci": {
+          "k": 5,
+          "n": 20,
+          "lo": 11.2,
+          "hi": 46.9
+        }
+      },
+      {
+        "threshold": 3.12,
+        "pos_answered": 0.872,
+        "neg_refused": 0.3,
+        "balanced_acc": 0.586,
+        "meets_floor": false,
+        "pos_ci": {
+          "k": 41,
+          "n": 47,
+          "lo": 74.8,
+          "hi": 94.0
+        },
+        "neg_ci": {
+          "k": 6,
+          "n": 20,
+          "lo": 14.5,
+          "hi": 51.9
+        }
+      },
+      {
+        "threshold": 4.042,
+        "pos_answered": 0.872,
+        "neg_refused": 0.3,
+        "balanced_acc": 0.586,
+        "meets_floor": false,
+        "pos_ci": {
+          "k": 41,
+          "n": 47,
+          "lo": 74.8,
+          "hi": 94.0
+        },
+        "neg_ci": {
+          "k": 6,
+          "n": 20,
+          "lo": 14.5,
+          "hi": 51.9
+        }
+      },
+      {
+        "threshold": 4.19,
+        "pos_answered": 0.872,
+        "neg_refused": 0.3,
+        "balanced_acc": 0.586,
+        "meets_floor": false,
+        "pos_ci": {
+          "k": 41,
+          "n": 47,
+          "lo": 74.8,
+          "hi": 94.0
+        },
+        "neg_ci": {
+          "k": 6,
+          "n": 20,
+          "lo": 14.5,
+          "hi": 51.9
+        }
+      },
+      {
+        "threshold": 4.253,
+        "pos_answered": 0.872,
+        "neg_refused": 0.3,
+        "balanced_acc": 0.586,
+        "meets_floor": false,
+        "pos_ci": {
+          "k": 41,
+          "n": 47,
+          "lo": 74.8,
+          "hi": 94.0
+        },
+        "neg_ci": {
+          "k": 6,
+          "n": 20,
+          "lo": 14.5,
+          "hi": 51.9
+        }
+      },
+      {
+        "threshold": 4.323,
+        "pos_answered": 0.872,
+        "neg_refused": 0.35,
+        "balanced_acc": 0.611,
+        "meets_floor": false,
+        "pos_ci": {
+          "k": 41,
+          "n": 47,
+          "lo": 74.8,
+          "hi": 94.0
+        },
+        "neg_ci": {
+          "k": 7,
+          "n": 20,
+          "lo": 18.1,
+          "hi": 56.7
+        }
+      },
+      {
+        "threshold": 4.348,
+        "pos_answered": 0.872,
+        "neg_refused": 0.35,
+        "balanced_acc": 0.611,
+        "meets_floor": false,
+        "pos_ci": {
+          "k": 41,
+          "n": 47,
+          "lo": 74.8,
+          "hi": 94.0
+        },
+        "neg_ci": {
+          "k": 7,
+          "n": 20,
+          "lo": 18.1,
+          "hi": 56.7
+        }
+      },
+      {
+        "threshold": 4.493,
+        "pos_answered": 0.872,
+        "neg_refused": 0.35,
+        "balanced_acc": 0.611,
+        "meets_floor": false,
+        "pos_ci": {
+          "k": 41,
+          "n": 47,
+          "lo": 74.8,
+          "hi": 94.0
+        },
+        "neg_ci": {
+          "k": 7,
+          "n": 20,
+          "lo": 18.1,
+          "hi": 56.7
+        }
+      },
+      {
+        "threshold": 4.501,
+        "pos_answered": 0.872,
+        "neg_refused": 0.35,
+        "balanced_acc": 0.611,
+        "meets_floor": false,
+        "pos_ci": {
+          "k": 41,
+          "n": 47,
+          "lo": 74.8,
+          "hi": 94.0
+        },
+        "neg_ci": {
+          "k": 7,
+          "n": 20,
+          "lo": 18.1,
+          "hi": 56.7
+        }
+      },
+      {
+        "threshold": 4.513,
+        "pos_answered": 0.872,
+        "neg_refused": 0.35,
+        "balanced_acc": 0.611,
+        "meets_floor": false,
+        "pos_ci": {
+          "k": 41,
+          "n": 47,
+          "lo": 74.8,
+          "hi": 94.0
+        },
+        "neg_ci": {
+          "k": 7,
+          "n": 20,
+          "lo": 18.1,
+          "hi": 56.7
+        }
+      },
+      {
+        "threshold": 4.585,
+        "pos_answered": 0.872,
+        "neg_refused": 0.35,
+        "balanced_acc": 0.611,
+        "meets_floor": false,
+        "pos_ci": {
+          "k": 41,
+          "n": 47,
+          "lo": 74.8,
+          "hi": 94.0
+        },
+        "neg_ci": {
+          "k": 7,
+          "n": 20,
+          "lo": 18.1,
+          "hi": 56.7
+        }
+      },
+      {
+        "threshold": 4.654,
+        "pos_answered": 0.872,
+        "neg_refused": 0.35,
+        "balanced_acc": 0.611,
+        "meets_floor": false,
+        "pos_ci": {
+          "k": 41,
+          "n": 47,
+          "lo": 74.8,
+          "hi": 94.0
+        },
+        "neg_ci": {
+          "k": 7,
+          "n": 20,
+          "lo": 18.1,
+          "hi": 56.7
+        }
+      },
+      {
+        "threshold": 4.743,
+        "pos_answered": 0.872,
+        "neg_refused": 0.35,
+        "balanced_acc": 0.611,
+        "meets_floor": false,
+        "pos_ci": {
+          "k": 41,
+          "n": 47,
+          "lo": 74.8,
+          "hi": 94.0
+        },
+        "neg_ci": {
+          "k": 7,
+          "n": 20,
+          "lo": 18.1,
+          "hi": 56.7
+        }
+      },
+      {
+        "threshold": 4.783,
+        "pos_answered": 0.872,
+        "neg_refused": 0.35,
+        "balanced_acc": 0.611,
+        "meets_floor": false,
+        "pos_ci": {
+          "k": 41,
+          "n": 47,
+          "lo": 74.8,
+          "hi": 94.0
+        },
+        "neg_ci": {
+          "k": 7,
+          "n": 20,
+          "lo": 18.1,
+          "hi": 56.7
+        }
+      },
+      {
+        "threshold": 4.816,
+        "pos_answered": 0.872,
+        "neg_refused": 0.35,
+        "balanced_acc": 0.611,
+        "meets_floor": false,
+        "pos_ci": {
+          "k": 41,
+          "n": 47,
+          "lo": 74.8,
+          "hi": 94.0
+        },
+        "neg_ci": {
+          "k": 7,
+          "n": 20,
+          "lo": 18.1,
+          "hi": 56.7
+        }
+      },
+      {
+        "threshold": 4.839,
+        "pos_answered": 0.872,
+        "neg_refused": 0.35,
+        "balanced_acc": 0.611,
+        "meets_floor": false,
+        "pos_ci": {
+          "k": 41,
+          "n": 47,
+          "lo": 74.8,
+          "hi": 94.0
+        },
+        "neg_ci": {
+          "k": 7,
+          "n": 20,
+          "lo": 18.1,
+          "hi": 56.7
+        }
+      },
+      {
+        "threshold": 5.041,
+        "pos_answered": 0.872,
+        "neg_refused": 0.35,
+        "balanced_acc": 0.611,
+        "meets_floor": false,
+        "pos_ci": {
+          "k": 41,
+          "n": 47,
+          "lo": 74.8,
+          "hi": 94.0
+        },
+        "neg_ci": {
+          "k": 7,
+          "n": 20,
+          "lo": 18.1,
+          "hi": 56.7
+        }
+      },
+      {
+        "threshold": 5.153,
+        "pos_answered": 0.872,
+        "neg_refused": 0.35,
+        "balanced_acc": 0.611,
+        "meets_floor": false,
+        "pos_ci": {
+          "k": 41,
+          "n": 47,
+          "lo": 74.8,
+          "hi": 94.0
+        },
+        "neg_ci": {
+          "k": 7,
+          "n": 20,
+          "lo": 18.1,
+          "hi": 56.7
+        }
+      },
+      {
+        "threshold": 5.34,
+        "pos_answered": 0.872,
+        "neg_refused": 0.4,
+        "balanced_acc": 0.636,
+        "meets_floor": false,
+        "pos_ci": {
+          "k": 41,
+          "n": 47,
+          "lo": 74.8,
+          "hi": 94.0
+        },
+        "neg_ci": {
+          "k": 8,
+          "n": 20,
+          "lo": 21.9,
+          "hi": 61.3
+        }
+      },
+      {
+        "threshold": 5.431,
+        "pos_answered": 0.872,
+        "neg_refused": 0.4,
+        "balanced_acc": 0.636,
+        "meets_floor": false,
+        "pos_ci": {
+          "k": 41,
+          "n": 47,
+          "lo": 74.8,
+          "hi": 94.0
+        },
+        "neg_ci": {
+          "k": 8,
+          "n": 20,
+          "lo": 21.9,
+          "hi": 61.3
+        }
+      },
+      {
+        "threshold": 5.756,
+        "pos_answered": 0.872,
+        "neg_refused": 0.4,
+        "balanced_acc": 0.636,
+        "meets_floor": false,
+        "pos_ci": {
+          "k": 41,
+          "n": 47,
+          "lo": 74.8,
+          "hi": 94.0
+        },
+        "neg_ci": {
+          "k": 8,
+          "n": 20,
+          "lo": 21.9,
+          "hi": 61.3
+        }
+      },
+      {
+        "threshold": 5.768,
+        "pos_answered": 0.872,
+        "neg_refused": 0.4,
+        "balanced_acc": 0.636,
+        "meets_floor": false,
+        "pos_ci": {
+          "k": 41,
+          "n": 47,
+          "lo": 74.8,
+          "hi": 94.0
+        },
+        "neg_ci": {
+          "k": 8,
+          "n": 20,
+          "lo": 21.9,
+          "hi": 61.3
+        }
+      },
+      {
+        "threshold": 5.957,
+        "pos_answered": 0.872,
+        "neg_refused": 0.45,
+        "balanced_acc": 0.661,
+        "meets_floor": false,
+        "pos_ci": {
+          "k": 41,
+          "n": 47,
+          "lo": 74.8,
+          "hi": 94.0
+        },
+        "neg_ci": {
+          "k": 9,
+          "n": 20,
+          "lo": 25.8,
+          "hi": 65.8
+        }
+      },
+      {
+        "threshold": 6.006,
+        "pos_answered": 0.872,
+        "neg_refused": 0.55,
+        "balanced_acc": 0.711,
+        "meets_floor": false,
+        "pos_ci": {
+          "k": 41,
+          "n": 47,
+          "lo": 74.8,
+          "hi": 94.0
+        },
+        "neg_ci": {
+          "k": 11,
+          "n": 20,
+          "lo": 34.2,
+          "hi": 74.2
+        }
+      },
+      {
+        "threshold": 6.026,
+        "pos_answered": 0.872,
+        "neg_refused": 0.6,
+        "balanced_acc": 0.736,
+        "meets_floor": false,
+        "pos_ci": {
+          "k": 41,
+          "n": 47,
+          "lo": 74.8,
+          "hi": 94.0
+        },
+        "neg_ci": {
+          "k": 12,
+          "n": 20,
+          "lo": 38.7,
+          "hi": 78.1
+        }
+      },
+      {
+        "threshold": 6.058,
+        "pos_answered": 0.872,
+        "neg_refused": 0.6,
+        "balanced_acc": 0.736,
+        "meets_floor": false,
+        "pos_ci": {
+          "k": 41,
+          "n": 47,
+          "lo": 74.8,
+          "hi": 94.0
+        },
+        "neg_ci": {
+          "k": 12,
+          "n": 20,
+          "lo": 38.7,
+          "hi": 78.1
+        }
+      },
+      {
+        "threshold": 6.096,
+        "pos_answered": 0.872,
+        "neg_refused": 0.65,
+        "balanced_acc": 0.761,
+        "meets_floor": false,
+        "pos_ci": {
+          "k": 41,
+          "n": 47,
+          "lo": 74.8,
+          "hi": 94.0
+        },
+        "neg_ci": {
+          "k": 13,
+          "n": 20,
+          "lo": 43.3,
+          "hi": 81.9
+        }
+      },
+      {
+        "threshold": 6.104,
+        "pos_answered": 0.872,
+        "neg_refused": 0.65,
+        "balanced_acc": 0.761,
+        "meets_floor": false,
+        "pos_ci": {
+          "k": 41,
+          "n": 47,
+          "lo": 74.8,
+          "hi": 94.0
+        },
+        "neg_ci": {
+          "k": 13,
+          "n": 20,
+          "lo": 43.3,
+          "hi": 81.9
+        }
+      },
+      {
+        "threshold": 6.229,
+        "pos_answered": 0.872,
+        "neg_refused": 0.65,
+        "balanced_acc": 0.761,
+        "meets_floor": false,
+        "pos_ci": {
+          "k": 41,
+          "n": 47,
+          "lo": 74.8,
+          "hi": 94.0
+        },
+        "neg_ci": {
+          "k": 13,
+          "n": 20,
+          "lo": 43.3,
+          "hi": 81.9
+        }
+      },
+      {
+        "threshold": 6.239,
+        "pos_answered": 0.872,
+        "neg_refused": 0.65,
+        "balanced_acc": 0.761,
+        "meets_floor": false,
+        "pos_ci": {
+          "k": 41,
+          "n": 47,
+          "lo": 74.8,
+          "hi": 94.0
+        },
+        "neg_ci": {
+          "k": 13,
+          "n": 20,
+          "lo": 43.3,
+          "hi": 81.9
+        }
+      },
+      {
+        "threshold": 6.245,
+        "pos_answered": 0.872,
+        "neg_refused": 0.65,
+        "balanced_acc": 0.761,
+        "meets_floor": false,
+        "pos_ci": {
+          "k": 41,
+          "n": 47,
+          "lo": 74.8,
+          "hi": 94.0
+        },
+        "neg_ci": {
+          "k": 13,
+          "n": 20,
+          "lo": 43.3,
+          "hi": 81.9
+        }
+      },
+      {
+        "threshold": 6.313,
+        "pos_answered": 0.872,
+        "neg_refused": 0.65,
+        "balanced_acc": 0.761,
+        "meets_floor": false,
+        "pos_ci": {
+          "k": 41,
+          "n": 47,
+          "lo": 74.8,
+          "hi": 94.0
+        },
+        "neg_ci": {
+          "k": 13,
+          "n": 20,
+          "lo": 43.3,
+          "hi": 81.9
+        }
+      },
+      {
+        "threshold": 6.33,
+        "pos_answered": 0.872,
+        "neg_refused": 0.65,
+        "balanced_acc": 0.761,
+        "meets_floor": false,
+        "pos_ci": {
+          "k": 41,
+          "n": 47,
+          "lo": 74.8,
+          "hi": 94.0
+        },
+        "neg_ci": {
+          "k": 13,
+          "n": 20,
+          "lo": 43.3,
+          "hi": 81.9
+        }
+      },
+      {
+        "threshold": 6.434,
+        "pos_answered": 0.872,
+        "neg_refused": 0.65,
+        "balanced_acc": 0.761,
+        "meets_floor": false,
+        "pos_ci": {
+          "k": 41,
+          "n": 47,
+          "lo": 74.8,
+          "hi": 94.0
+        },
+        "neg_ci": {
+          "k": 13,
+          "n": 20,
+          "lo": 43.3,
+          "hi": 81.9
+        }
+      },
+      {
+        "threshold": 6.447,
+        "pos_answered": 0.872,
+        "neg_refused": 0.65,
+        "balanced_acc": 0.761,
+        "meets_floor": false,
+        "pos_ci": {
+          "k": 41,
+          "n": 47,
+          "lo": 74.8,
+          "hi": 94.0
+        },
+        "neg_ci": {
+          "k": 13,
+          "n": 20,
+          "lo": 43.3,
+          "hi": 81.9
+        }
+      },
+      {
+        "threshold": 6.46,
+        "pos_answered": 0.872,
+        "neg_refused": 0.65,
+        "balanced_acc": 0.761,
+        "meets_floor": false,
+        "pos_ci": {
+          "k": 41,
+          "n": 47,
+          "lo": 74.8,
+          "hi": 94.0
+        },
+        "neg_ci": {
+          "k": 13,
+          "n": 20,
+          "lo": 43.3,
+          "hi": 81.9
+        }
+      },
+      {
+        "threshold": 6.463,
+        "pos_answered": 0.872,
+        "neg_refused": 0.65,
+        "balanced_acc": 0.761,
+        "meets_floor": false,
+        "pos_ci": {
+          "k": 41,
+          "n": 47,
+          "lo": 74.8,
+          "hi": 94.0
+        },
+        "neg_ci": {
+          "k": 13,
+          "n": 20,
+          "lo": 43.3,
+          "hi": 81.9
+        }
+      },
+      {
+        "threshold": 6.539,
+        "pos_answered": 0.872,
+        "neg_refused": 0.65,
+        "balanced_acc": 0.761,
+        "meets_floor": false,
+        "pos_ci": {
+          "k": 41,
+          "n": 47,
+          "lo": 74.8,
+          "hi": 94.0
+        },
+        "neg_ci": {
+          "k": 13,
+          "n": 20,
+          "lo": 43.3,
+          "hi": 81.9
+        }
+      },
+      {
+        "threshold": 6.557,
+        "pos_answered": 0.872,
+        "neg_refused": 0.65,
+        "balanced_acc": 0.761,
+        "meets_floor": false,
+        "pos_ci": {
+          "k": 41,
+          "n": 47,
+          "lo": 74.8,
+          "hi": 94.0
+        },
+        "neg_ci": {
+          "k": 13,
+          "n": 20,
+          "lo": 43.3,
+          "hi": 81.9
+        }
+      },
+      {
+        "threshold": 6.713,
+        "pos_answered": 0.872,
+        "neg_refused": 0.7,
+        "balanced_acc": 0.786,
+        "meets_floor": false,
+        "pos_ci": {
+          "k": 41,
+          "n": 47,
+          "lo": 74.8,
+          "hi": 94.0
+        },
+        "neg_ci": {
+          "k": 14,
+          "n": 20,
+          "lo": 48.1,
+          "hi": 85.5
+        }
+      },
+      {
+        "threshold": 6.744,
+        "pos_answered": 0.872,
+        "neg_refused": 0.7,
+        "balanced_acc": 0.786,
+        "meets_floor": false,
+        "pos_ci": {
+          "k": 41,
+          "n": 47,
+          "lo": 74.8,
+          "hi": 94.0
+        },
+        "neg_ci": {
+          "k": 14,
+          "n": 20,
+          "lo": 48.1,
+          "hi": 85.5
+        }
+      },
+      {
+        "threshold": 6.791,
+        "pos_answered": 0.872,
+        "neg_refused": 0.7,
+        "balanced_acc": 0.786,
+        "meets_floor": false,
+        "pos_ci": {
+          "k": 41,
+          "n": 47,
+          "lo": 74.8,
+          "hi": 94.0
+        },
+        "neg_ci": {
+          "k": 14,
+          "n": 20,
+          "lo": 48.1,
+          "hi": 85.5
+        }
+      },
+      {
+        "threshold": 6.797,
+        "pos_answered": 0.872,
+        "neg_refused": 0.7,
+        "balanced_acc": 0.786,
+        "meets_floor": false,
+        "pos_ci": {
+          "k": 41,
+          "n": 47,
+          "lo": 74.8,
+          "hi": 94.0
+        },
+        "neg_ci": {
+          "k": 14,
+          "n": 20,
+          "lo": 48.1,
+          "hi": 85.5
+        }
+      },
+      {
+        "threshold": 6.812,
+        "pos_answered": 0.872,
+        "neg_refused": 0.7,
+        "balanced_acc": 0.786,
+        "meets_floor": false,
+        "pos_ci": {
+          "k": 41,
+          "n": 47,
+          "lo": 74.8,
+          "hi": 94.0
+        },
+        "neg_ci": {
+          "k": 14,
+          "n": 20,
+          "lo": 48.1,
+          "hi": 85.5
+        }
+      },
+      {
+        "threshold": 6.912,
+        "pos_answered": 0.872,
+        "neg_refused": 0.75,
+        "balanced_acc": 0.811,
+        "meets_floor": false,
+        "pos_ci": {
+          "k": 41,
+          "n": 47,
+          "lo": 74.8,
+          "hi": 94.0
+        },
+        "neg_ci": {
+          "k": 15,
+          "n": 20,
+          "lo": 53.1,
+          "hi": 88.8
+        }
+      },
+      {
+        "threshold": 6.922,
+        "pos_answered": 0.872,
+        "neg_refused": 0.75,
+        "balanced_acc": 0.811,
+        "meets_floor": false,
+        "pos_ci": {
+          "k": 41,
+          "n": 47,
+          "lo": 74.8,
+          "hi": 94.0
+        },
+        "neg_ci": {
+          "k": 15,
+          "n": 20,
+          "lo": 53.1,
+          "hi": 88.8
+        }
+      },
+      {
+        "threshold": 6.962,
+        "pos_answered": 0.872,
+        "neg_refused": 0.75,
+        "balanced_acc": 0.811,
+        "meets_floor": false,
+        "pos_ci": {
+          "k": 41,
+          "n": 47,
+          "lo": 74.8,
+          "hi": 94.0
+        },
+        "neg_ci": {
+          "k": 15,
+          "n": 20,
+          "lo": 53.1,
+          "hi": 88.8
+        }
+      },
+      {
+        "threshold": 6.993,
+        "pos_answered": 0.851,
+        "neg_refused": 0.75,
+        "balanced_acc": 0.801,
+        "meets_floor": false,
+        "pos_ci": {
+          "k": 40,
+          "n": 47,
+          "lo": 72.3,
+          "hi": 92.6
+        },
+        "neg_ci": {
+          "k": 15,
+          "n": 20,
+          "lo": 53.1,
+          "hi": 88.8
+        }
+      },
+      {
+        "threshold": 7.026,
+        "pos_answered": 0.851,
+        "neg_refused": 0.75,
+        "balanced_acc": 0.801,
+        "meets_floor": false,
+        "pos_ci": {
+          "k": 40,
+          "n": 47,
+          "lo": 72.3,
+          "hi": 92.6
+        },
+        "neg_ci": {
+          "k": 15,
+          "n": 20,
+          "lo": 53.1,
+          "hi": 88.8
+        }
+      },
+      {
+        "threshold": 7.042,
+        "pos_answered": 0.851,
+        "neg_refused": 0.75,
+        "balanced_acc": 0.801,
+        "meets_floor": false,
+        "pos_ci": {
+          "k": 40,
+          "n": 47,
+          "lo": 72.3,
+          "hi": 92.6
+        },
+        "neg_ci": {
+          "k": 15,
+          "n": 20,
+          "lo": 53.1,
+          "hi": 88.8
+        }
+      },
+      {
+        "threshold": 7.087,
+        "pos_answered": 0.851,
+        "neg_refused": 0.75,
+        "balanced_acc": 0.801,
+        "meets_floor": false,
+        "pos_ci": {
+          "k": 40,
+          "n": 47,
+          "lo": 72.3,
+          "hi": 92.6
+        },
+        "neg_ci": {
+          "k": 15,
+          "n": 20,
+          "lo": 53.1,
+          "hi": 88.8
+        }
+      },
+      {
+        "threshold": 7.103,
+        "pos_answered": 0.851,
+        "neg_refused": 0.75,
+        "balanced_acc": 0.801,
+        "meets_floor": false,
+        "pos_ci": {
+          "k": 40,
+          "n": 47,
+          "lo": 72.3,
+          "hi": 92.6
+        },
+        "neg_ci": {
+          "k": 15,
+          "n": 20,
+          "lo": 53.1,
+          "hi": 88.8
+        }
+      },
+      {
+        "threshold": 7.249,
+        "pos_answered": 0.851,
+        "neg_refused": 0.75,
+        "balanced_acc": 0.801,
+        "meets_floor": false,
+        "pos_ci": {
+          "k": 40,
+          "n": 47,
+          "lo": 72.3,
+          "hi": 92.6
+        },
+        "neg_ci": {
+          "k": 15,
+          "n": 20,
+          "lo": 53.1,
+          "hi": 88.8
+        }
+      },
+      {
+        "threshold": 7.261,
+        "pos_answered": 0.851,
+        "neg_refused": 0.75,
+        "balanced_acc": 0.801,
+        "meets_floor": false,
+        "pos_ci": {
+          "k": 40,
+          "n": 47,
+          "lo": 72.3,
+          "hi": 92.6
+        },
+        "neg_ci": {
+          "k": 15,
+          "n": 20,
+          "lo": 53.1,
+          "hi": 88.8
+        }
+      },
+      {
+        "threshold": 7.403,
+        "pos_answered": 0.851,
+        "neg_refused": 0.8,
+        "balanced_acc": 0.826,
+        "meets_floor": false,
+        "pos_ci": {
+          "k": 40,
+          "n": 47,
+          "lo": 72.3,
+          "hi": 92.6
+        },
+        "neg_ci": {
+          "k": 16,
+          "n": 20,
+          "lo": 58.4,
+          "hi": 91.9
+        }
+      },
+      {
+        "threshold": 7.414,
+        "pos_answered": 0.851,
+        "neg_refused": 0.8,
+        "balanced_acc": 0.826,
+        "meets_floor": false,
+        "pos_ci": {
+          "k": 40,
+          "n": 47,
+          "lo": 72.3,
+          "hi": 92.6
+        },
+        "neg_ci": {
+          "k": 16,
+          "n": 20,
+          "lo": 58.4,
+          "hi": 91.9
+        }
+      },
+      {
+        "threshold": 7.445,
+        "pos_answered": 0.83,
+        "neg_refused": 0.8,
+        "balanced_acc": 0.815,
+        "meets_floor": false,
+        "pos_ci": {
+          "k": 39,
+          "n": 47,
+          "lo": 69.9,
+          "hi": 91.1
+        },
+        "neg_ci": {
+          "k": 16,
+          "n": 20,
+          "lo": 58.4,
+          "hi": 91.9
+        }
+      },
+      {
+        "threshold": 7.496,
+        "pos_answered": 0.83,
+        "neg_refused": 0.8,
+        "balanced_acc": 0.815,
+        "meets_floor": false,
+        "pos_ci": {
+          "k": 39,
+          "n": 47,
+          "lo": 69.9,
+          "hi": 91.1
+        },
+        "neg_ci": {
+          "k": 16,
+          "n": 20,
+          "lo": 58.4,
+          "hi": 91.9
+        }
+      },
+      {
+        "threshold": 7.588,
+        "pos_answered": 0.83,
+        "neg_refused": 0.8,
+        "balanced_acc": 0.815,
+        "meets_floor": false,
+        "pos_ci": {
+          "k": 39,
+          "n": 47,
+          "lo": 69.9,
+          "hi": 91.1
+        },
+        "neg_ci": {
+          "k": 16,
+          "n": 20,
+          "lo": 58.4,
+          "hi": 91.9
+        }
+      },
+      {
+        "threshold": 7.615,
+        "pos_answered": 0.83,
+        "neg_refused": 0.85,
+        "balanced_acc": 0.84,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 39,
+          "n": 47,
+          "lo": 69.9,
+          "hi": 91.1
+        },
+        "neg_ci": {
+          "k": 17,
+          "n": 20,
+          "lo": 64.0,
+          "hi": 94.8
+        }
+      },
+      {
+        "threshold": 7.641,
+        "pos_answered": 0.83,
+        "neg_refused": 0.9,
+        "balanced_acc": 0.865,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 39,
+          "n": 47,
+          "lo": 69.9,
+          "hi": 91.1
+        },
+        "neg_ci": {
+          "k": 18,
+          "n": 20,
+          "lo": 69.9,
+          "hi": 97.2
+        }
+      },
+      {
+        "threshold": 7.659,
+        "pos_answered": 0.83,
+        "neg_refused": 0.9,
+        "balanced_acc": 0.865,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 39,
+          "n": 47,
+          "lo": 69.9,
+          "hi": 91.1
+        },
+        "neg_ci": {
+          "k": 18,
+          "n": 20,
+          "lo": 69.9,
+          "hi": 97.2
+        }
+      },
+      {
+        "threshold": 7.881,
+        "pos_answered": 0.83,
+        "neg_refused": 0.9,
+        "balanced_acc": 0.865,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 39,
+          "n": 47,
+          "lo": 69.9,
+          "hi": 91.1
+        },
+        "neg_ci": {
+          "k": 18,
+          "n": 20,
+          "lo": 69.9,
+          "hi": 97.2
+        }
+      },
+      {
+        "threshold": 7.931,
+        "pos_answered": 0.83,
+        "neg_refused": 0.9,
+        "balanced_acc": 0.865,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 39,
+          "n": 47,
+          "lo": 69.9,
+          "hi": 91.1
+        },
+        "neg_ci": {
+          "k": 18,
+          "n": 20,
+          "lo": 69.9,
+          "hi": 97.2
+        }
+      },
+      {
+        "threshold": 7.969,
+        "pos_answered": 0.83,
+        "neg_refused": 0.9,
+        "balanced_acc": 0.865,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 39,
+          "n": 47,
+          "lo": 69.9,
+          "hi": 91.1
+        },
+        "neg_ci": {
+          "k": 18,
+          "n": 20,
+          "lo": 69.9,
+          "hi": 97.2
+        }
+      },
+      {
+        "threshold": 8.081,
+        "pos_answered": 0.83,
+        "neg_refused": 0.9,
+        "balanced_acc": 0.865,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 39,
+          "n": 47,
+          "lo": 69.9,
+          "hi": 91.1
+        },
+        "neg_ci": {
+          "k": 18,
+          "n": 20,
+          "lo": 69.9,
+          "hi": 97.2
+        }
+      },
+      {
+        "threshold": 8.153,
+        "pos_answered": 0.83,
+        "neg_refused": 0.9,
+        "balanced_acc": 0.865,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 39,
+          "n": 47,
+          "lo": 69.9,
+          "hi": 91.1
+        },
+        "neg_ci": {
+          "k": 18,
+          "n": 20,
+          "lo": 69.9,
+          "hi": 97.2
+        }
+      },
+      {
+        "threshold": 8.199,
+        "pos_answered": 0.83,
+        "neg_refused": 0.9,
+        "balanced_acc": 0.865,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 39,
+          "n": 47,
+          "lo": 69.9,
+          "hi": 91.1
+        },
+        "neg_ci": {
+          "k": 18,
+          "n": 20,
+          "lo": 69.9,
+          "hi": 97.2
+        }
+      },
+      {
+        "threshold": 8.202,
+        "pos_answered": 0.83,
+        "neg_refused": 0.95,
+        "balanced_acc": 0.89,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 39,
+          "n": 47,
+          "lo": 69.9,
+          "hi": 91.1
+        },
+        "neg_ci": {
+          "k": 19,
+          "n": 20,
+          "lo": 76.4,
+          "hi": 99.1
+        }
+      },
+      {
+        "threshold": 8.221,
+        "pos_answered": 0.83,
+        "neg_refused": 0.95,
+        "balanced_acc": 0.89,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 39,
+          "n": 47,
+          "lo": 69.9,
+          "hi": 91.1
+        },
+        "neg_ci": {
+          "k": 19,
+          "n": 20,
+          "lo": 76.4,
+          "hi": 99.1
+        }
+      },
+      {
+        "threshold": 8.312,
+        "pos_answered": 0.83,
+        "neg_refused": 0.95,
+        "balanced_acc": 0.89,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 39,
+          "n": 47,
+          "lo": 69.9,
+          "hi": 91.1
+        },
+        "neg_ci": {
+          "k": 19,
+          "n": 20,
+          "lo": 76.4,
+          "hi": 99.1
+        }
+      },
+      {
+        "threshold": 8.491,
+        "pos_answered": 0.83,
+        "neg_refused": 0.95,
+        "balanced_acc": 0.89,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 39,
+          "n": 47,
+          "lo": 69.9,
+          "hi": 91.1
+        },
+        "neg_ci": {
+          "k": 19,
+          "n": 20,
+          "lo": 76.4,
+          "hi": 99.1
+        }
+      },
+      {
+        "threshold": 8.627,
+        "pos_answered": 0.83,
+        "neg_refused": 0.95,
+        "balanced_acc": 0.89,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 39,
+          "n": 47,
+          "lo": 69.9,
+          "hi": 91.1
+        },
+        "neg_ci": {
+          "k": 19,
+          "n": 20,
+          "lo": 76.4,
+          "hi": 99.1
+        }
+      },
+      {
+        "threshold": 8.686,
+        "pos_answered": 0.83,
+        "neg_refused": 0.95,
+        "balanced_acc": 0.89,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 39,
+          "n": 47,
+          "lo": 69.9,
+          "hi": 91.1
+        },
+        "neg_ci": {
+          "k": 19,
+          "n": 20,
+          "lo": 76.4,
+          "hi": 99.1
+        }
+      },
+      {
+        "threshold": 8.706,
+        "pos_answered": 0.83,
+        "neg_refused": 0.95,
+        "balanced_acc": 0.89,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 39,
+          "n": 47,
+          "lo": 69.9,
+          "hi": 91.1
+        },
+        "neg_ci": {
+          "k": 19,
+          "n": 20,
+          "lo": 76.4,
+          "hi": 99.1
+        }
+      },
+      {
+        "threshold": 8.77,
+        "pos_answered": 0.83,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.915,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 39,
+          "n": 47,
+          "lo": 69.9,
+          "hi": 91.1
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 8.888,
+        "pos_answered": 0.83,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.915,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 39,
+          "n": 47,
+          "lo": 69.9,
+          "hi": 91.1
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 9.244,
+        "pos_answered": 0.83,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.915,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 39,
+          "n": 47,
+          "lo": 69.9,
+          "hi": 91.1
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 9.309,
+        "pos_answered": 0.809,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.904,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 38,
+          "n": 47,
+          "lo": 67.5,
+          "hi": 89.6
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 9.441,
+        "pos_answered": 0.809,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.904,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 38,
+          "n": 47,
+          "lo": 67.5,
+          "hi": 89.6
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 9.51,
+        "pos_answered": 0.809,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.904,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 38,
+          "n": 47,
+          "lo": 67.5,
+          "hi": 89.6
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 9.544,
+        "pos_answered": 0.787,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.894,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 37,
+          "n": 47,
+          "lo": 65.1,
+          "hi": 88.0
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 9.772,
+        "pos_answered": 0.787,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.894,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 37,
+          "n": 47,
+          "lo": 65.1,
+          "hi": 88.0
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 9.85,
+        "pos_answered": 0.787,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.894,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 37,
+          "n": 47,
+          "lo": 65.1,
+          "hi": 88.0
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 9.945,
+        "pos_answered": 0.787,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.894,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 37,
+          "n": 47,
+          "lo": 65.1,
+          "hi": 88.0
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 10.002,
+        "pos_answered": 0.766,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.883,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 36,
+          "n": 47,
+          "lo": 62.8,
+          "hi": 86.4
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 10.104,
+        "pos_answered": 0.766,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.883,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 36,
+          "n": 47,
+          "lo": 62.8,
+          "hi": 86.4
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 10.364,
+        "pos_answered": 0.766,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.883,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 36,
+          "n": 47,
+          "lo": 62.8,
+          "hi": 86.4
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 10.401,
+        "pos_answered": 0.766,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.883,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 36,
+          "n": 47,
+          "lo": 62.8,
+          "hi": 86.4
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 10.404,
+        "pos_answered": 0.766,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.883,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 36,
+          "n": 47,
+          "lo": 62.8,
+          "hi": 86.4
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 10.407,
+        "pos_answered": 0.766,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.883,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 36,
+          "n": 47,
+          "lo": 62.8,
+          "hi": 86.4
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 10.563,
+        "pos_answered": 0.745,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.872,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 35,
+          "n": 47,
+          "lo": 60.5,
+          "hi": 84.7
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 10.789,
+        "pos_answered": 0.745,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.872,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 35,
+          "n": 47,
+          "lo": 60.5,
+          "hi": 84.7
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 10.881,
+        "pos_answered": 0.745,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.872,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 35,
+          "n": 47,
+          "lo": 60.5,
+          "hi": 84.7
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 11.318,
+        "pos_answered": 0.745,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.872,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 35,
+          "n": 47,
+          "lo": 60.5,
+          "hi": 84.7
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 11.426,
+        "pos_answered": 0.745,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.872,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 35,
+          "n": 47,
+          "lo": 60.5,
+          "hi": 84.7
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 11.757,
+        "pos_answered": 0.723,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.862,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 34,
+          "n": 47,
+          "lo": 58.2,
+          "hi": 83.1
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 11.764,
+        "pos_answered": 0.723,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.862,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 34,
+          "n": 47,
+          "lo": 58.2,
+          "hi": 83.1
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 11.767,
+        "pos_answered": 0.723,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.862,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 34,
+          "n": 47,
+          "lo": 58.2,
+          "hi": 83.1
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 11.772,
+        "pos_answered": 0.723,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.862,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 34,
+          "n": 47,
+          "lo": 58.2,
+          "hi": 83.1
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 12.277,
+        "pos_answered": 0.723,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.862,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 34,
+          "n": 47,
+          "lo": 58.2,
+          "hi": 83.1
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 12.355,
+        "pos_answered": 0.702,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.851,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 33,
+          "n": 47,
+          "lo": 56.0,
+          "hi": 81.3
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 12.441,
+        "pos_answered": 0.702,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.851,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 33,
+          "n": 47,
+          "lo": 56.0,
+          "hi": 81.3
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 12.511,
+        "pos_answered": 0.702,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.851,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 33,
+          "n": 47,
+          "lo": 56.0,
+          "hi": 81.3
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 12.818,
+        "pos_answered": 0.702,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.851,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 33,
+          "n": 47,
+          "lo": 56.0,
+          "hi": 81.3
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 12.839,
+        "pos_answered": 0.702,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.851,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 33,
+          "n": 47,
+          "lo": 56.0,
+          "hi": 81.3
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 12.897,
+        "pos_answered": 0.702,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.851,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 33,
+          "n": 47,
+          "lo": 56.0,
+          "hi": 81.3
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 12.966,
+        "pos_answered": 0.702,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.851,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 33,
+          "n": 47,
+          "lo": 56.0,
+          "hi": 81.3
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 13.081,
+        "pos_answered": 0.681,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.84,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 32,
+          "n": 47,
+          "lo": 53.8,
+          "hi": 79.6
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 13.237,
+        "pos_answered": 0.681,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.84,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 32,
+          "n": 47,
+          "lo": 53.8,
+          "hi": 79.6
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 13.303,
+        "pos_answered": 0.681,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.84,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 32,
+          "n": 47,
+          "lo": 53.8,
+          "hi": 79.6
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 13.457,
+        "pos_answered": 0.681,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.84,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 32,
+          "n": 47,
+          "lo": 53.8,
+          "hi": 79.6
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 13.496,
+        "pos_answered": 0.638,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.819,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 30,
+          "n": 47,
+          "lo": 49.5,
+          "hi": 76.0
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 13.593,
+        "pos_answered": 0.617,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.809,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 29,
+          "n": 47,
+          "lo": 47.4,
+          "hi": 74.2
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 13.847,
+        "pos_answered": 0.617,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.809,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 29,
+          "n": 47,
+          "lo": 47.4,
+          "hi": 74.2
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 13.984,
+        "pos_answered": 0.574,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.787,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 27,
+          "n": 47,
+          "lo": 43.3,
+          "hi": 70.5
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 13.993,
+        "pos_answered": 0.574,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.787,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 27,
+          "n": 47,
+          "lo": 43.3,
+          "hi": 70.5
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 14.311,
+        "pos_answered": 0.553,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.777,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 26,
+          "n": 47,
+          "lo": 41.2,
+          "hi": 68.6
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 14.618,
+        "pos_answered": 0.532,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.766,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 25,
+          "n": 47,
+          "lo": 39.2,
+          "hi": 66.7
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 14.681,
+        "pos_answered": 0.532,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.766,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 25,
+          "n": 47,
+          "lo": 39.2,
+          "hi": 66.7
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 14.698,
+        "pos_answered": 0.511,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.755,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 24,
+          "n": 47,
+          "lo": 37.2,
+          "hi": 64.7
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 14.832,
+        "pos_answered": 0.511,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.755,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 24,
+          "n": 47,
+          "lo": 37.2,
+          "hi": 64.7
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 15.297,
+        "pos_answered": 0.511,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.755,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 24,
+          "n": 47,
+          "lo": 37.2,
+          "hi": 64.7
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 15.32,
+        "pos_answered": 0.489,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.745,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 23,
+          "n": 47,
+          "lo": 35.3,
+          "hi": 62.8
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 15.534,
+        "pos_answered": 0.489,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.745,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 23,
+          "n": 47,
+          "lo": 35.3,
+          "hi": 62.8
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 15.645,
+        "pos_answered": 0.489,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.745,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 23,
+          "n": 47,
+          "lo": 35.3,
+          "hi": 62.8
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 15.653,
+        "pos_answered": 0.468,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.734,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 22,
+          "n": 47,
+          "lo": 33.3,
+          "hi": 60.8
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 15.729,
+        "pos_answered": 0.468,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.734,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 22,
+          "n": 47,
+          "lo": 33.3,
+          "hi": 60.8
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 15.741,
+        "pos_answered": 0.468,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.734,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 22,
+          "n": 47,
+          "lo": 33.3,
+          "hi": 60.8
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 15.928,
+        "pos_answered": 0.447,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.723,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 21,
+          "n": 47,
+          "lo": 31.4,
+          "hi": 58.8
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 16.542,
+        "pos_answered": 0.447,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.723,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 21,
+          "n": 47,
+          "lo": 31.4,
+          "hi": 58.8
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 16.662,
+        "pos_answered": 0.447,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.723,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 21,
+          "n": 47,
+          "lo": 31.4,
+          "hi": 58.8
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 17.072,
+        "pos_answered": 0.447,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.723,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 21,
+          "n": 47,
+          "lo": 31.4,
+          "hi": 58.8
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 17.881,
+        "pos_answered": 0.447,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.723,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 21,
+          "n": 47,
+          "lo": 31.4,
+          "hi": 58.8
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 18.219,
+        "pos_answered": 0.447,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.723,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 21,
+          "n": 47,
+          "lo": 31.4,
+          "hi": 58.8
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 18.541,
+        "pos_answered": 0.426,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.713,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 20,
+          "n": 47,
+          "lo": 29.5,
+          "hi": 56.7
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 18.958,
+        "pos_answered": 0.404,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.702,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 19,
+          "n": 47,
+          "lo": 27.6,
+          "hi": 54.7
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 19.16,
+        "pos_answered": 0.404,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.702,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 19,
+          "n": 47,
+          "lo": 27.6,
+          "hi": 54.7
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 19.251,
+        "pos_answered": 0.383,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.691,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 18,
+          "n": 47,
+          "lo": 25.8,
+          "hi": 52.6
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 19.261,
+        "pos_answered": 0.383,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.691,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 18,
+          "n": 47,
+          "lo": 25.8,
+          "hi": 52.6
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 19.478,
+        "pos_answered": 0.362,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.681,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 17,
+          "n": 47,
+          "lo": 24.0,
+          "hi": 50.5
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 19.592,
+        "pos_answered": 0.34,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.67,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 16,
+          "n": 47,
+          "lo": 22.2,
+          "hi": 48.3
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 19.601,
+        "pos_answered": 0.34,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.67,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 16,
+          "n": 47,
+          "lo": 22.2,
+          "hi": 48.3
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 20.016,
+        "pos_answered": 0.34,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.67,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 16,
+          "n": 47,
+          "lo": 22.2,
+          "hi": 48.3
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 20.434,
+        "pos_answered": 0.319,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.66,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 15,
+          "n": 47,
+          "lo": 20.4,
+          "hi": 46.2
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 20.883,
+        "pos_answered": 0.319,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.66,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 15,
+          "n": 47,
+          "lo": 20.4,
+          "hi": 46.2
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 20.978,
+        "pos_answered": 0.319,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.66,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 15,
+          "n": 47,
+          "lo": 20.4,
+          "hi": 46.2
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 21.015,
+        "pos_answered": 0.319,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.66,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 15,
+          "n": 47,
+          "lo": 20.4,
+          "hi": 46.2
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 21.341,
+        "pos_answered": 0.319,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.66,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 15,
+          "n": 47,
+          "lo": 20.4,
+          "hi": 46.2
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 21.353,
+        "pos_answered": 0.298,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.649,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 14,
+          "n": 47,
+          "lo": 18.7,
+          "hi": 44.0
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 21.916,
+        "pos_answered": 0.255,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.628,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 12,
+          "n": 47,
+          "lo": 15.3,
+          "hi": 39.5
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 22.355,
+        "pos_answered": 0.255,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.628,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 12,
+          "n": 47,
+          "lo": 15.3,
+          "hi": 39.5
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 23.074,
+        "pos_answered": 0.255,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.628,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 12,
+          "n": 47,
+          "lo": 15.3,
+          "hi": 39.5
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 23.541,
+        "pos_answered": 0.234,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.617,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 11,
+          "n": 47,
+          "lo": 13.6,
+          "hi": 37.2
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 23.978,
+        "pos_answered": 0.234,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.617,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 11,
+          "n": 47,
+          "lo": 13.6,
+          "hi": 37.2
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 24.786,
+        "pos_answered": 0.234,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.617,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 11,
+          "n": 47,
+          "lo": 13.6,
+          "hi": 37.2
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 24.846,
+        "pos_answered": 0.234,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.617,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 11,
+          "n": 47,
+          "lo": 13.6,
+          "hi": 37.2
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 26.035,
+        "pos_answered": 0.191,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.596,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 9,
+          "n": 47,
+          "lo": 10.4,
+          "hi": 32.5
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 26.228,
+        "pos_answered": 0.17,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.585,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 8,
+          "n": 47,
+          "lo": 8.9,
+          "hi": 30.1
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 26.446,
+        "pos_answered": 0.17,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.585,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 8,
+          "n": 47,
+          "lo": 8.9,
+          "hi": 30.1
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 26.783,
+        "pos_answered": 0.149,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.574,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 7,
+          "n": 47,
+          "lo": 7.4,
+          "hi": 27.7
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 26.854,
+        "pos_answered": 0.149,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.574,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 7,
+          "n": 47,
+          "lo": 7.4,
+          "hi": 27.7
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 28.641,
+        "pos_answered": 0.149,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.574,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 7,
+          "n": 47,
+          "lo": 7.4,
+          "hi": 27.7
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 28.651,
+        "pos_answered": 0.149,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.574,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 7,
+          "n": 47,
+          "lo": 7.4,
+          "hi": 27.7
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 29.508,
+        "pos_answered": 0.106,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.553,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 5,
+          "n": 47,
+          "lo": 4.6,
+          "hi": 22.6
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 32.288,
+        "pos_answered": 0.085,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.543,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 4,
+          "n": 47,
+          "lo": 3.4,
+          "hi": 19.9
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 33.747,
+        "pos_answered": 0.064,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.532,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 3,
+          "n": 47,
+          "lo": 2.2,
+          "hi": 17.2
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 33.98,
+        "pos_answered": 0.043,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.521,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 2,
+          "n": 47,
+          "lo": 1.2,
+          "hi": 14.2
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 34.891,
+        "pos_answered": 0.043,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.521,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 2,
+          "n": 47,
+          "lo": 1.2,
+          "hi": 14.2
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 36.02,
+        "pos_answered": 0.021,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.511,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 1,
+          "n": 47,
+          "lo": 0.4,
+          "hi": 11.1
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 37.136,
+        "pos_answered": 0.021,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.511,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 1,
+          "n": 47,
+          "lo": 0.4,
+          "hi": 11.1
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 41.469,
+        "pos_answered": 0.021,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.511,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 1,
+          "n": 47,
+          "lo": 0.4,
+          "hi": 11.1
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      },
+      {
+        "threshold": 51.824,
+        "pos_answered": 0.0,
+        "neg_refused": 1.0,
+        "balanced_acc": 0.5,
+        "meets_floor": true,
+        "pos_ci": {
+          "k": 0,
+          "n": 47,
+          "lo": 0.0,
+          "hi": 7.6
+        },
+        "neg_ci": {
+          "k": 20,
+          "n": 20,
+          "lo": 83.9,
+          "hi": 100.0
+        }
+      }
+    ],
+    "retriever": "bm25"
+  },
+  "retrieval": {
+    "cases": 47,
+    "positives": 47,
+    "negatives": 20,
+    "recall@3": 0.851,
+    "mrr": 0.805,
+    "hit@3": 0.872,
+    "recall@5": 0.872,
+    "mrr@10": 0.824,
+    "first_gold_rank": {
+      "What's the difference between the Get Clássica and the Get Smart?": 1,
+      "Do I need a bank account to receive my sales via Pix?": 4,
+      "My card machine won't connect to the internet, what should I do?": 1,
+      "How does receivables advance (antecipação) work with Getnet?": 1,
+      "My card machine is showing a transaction decline error.": 2,
+      "How many installments can I split a sale into with the crediário?": 3,
+      "Can I sell through WhatsApp using the Payment Link?": 2,
+      "Como eu contrato o Crediário e qual a taxa?": 1,
+      "Há alguma taxa extra para usar o Aplicativo Getnet Brasil?": 1,
+      "Como antecipar suas vendas pelo app?": 1,
+      "Como habilitar antecipação automática pelo App?": 1,
+      "Como habilitar antecipação automática pelo Portal?": 1,
+      "Como configurar o Wi-Fi na sua maquininha Getnet?": 1,
+      "Como acesso a minha Get Conta?": null,
+      "Como realizo uma transferência e quais os limites diários?": 2,
+      "O que é a Get Conta?": 1,
+      "Como fazer uma venda na maquininha Getnet?": 1,
+      "Como vender via Pix por QR Code?": 1,
+      "Como Habilitar o Recebimento de Vendas via Pix no Aplicativo Getnet Brasil?": 1,
+      "Eu quero Meu celular é compatível?": 2,
+      "Até quantas parcelas posso fazer e como sei os juros para informar ao meu cliente (portador do cartão)?": 1,
+      "Como faço para baixar o Aplicativo Getnet Brasil?": 1,
+      "Pronto para configurar sua maquininha?": 6,
+      "Minha agência e conta não apareceu, o que eu faço?": 1,
+      "Como faço para enviar dinheiro para minha Get Conta?": 2,
+      "Quem pode abrir uma Get Conta?": 1,
+      "Como habilitar o Pix por meio da maquininha Getnet?": 7,
+      "Onde visualizo o pagamento e em que prazo eu recebo?": 1,
+      "Como realizo o cancelamento de uma venda da Get Smart realizada em dias anteriores?": 1,
+      "Quando e como vou receber os valores das minhas vendas realizadas?": 1,
+      "Quais são os meus limites diários para realizar transações?": 1,
+      "Como faço para abrir uma Get Conta?": 1,
+      "Qualquer estabelecimento pode ter o Crediário?": 1,
+      "Fiz uma venda duplicada na minha Get Smart, em menos de 5 minutos, preciso realizar o estorno?": 1,
+      "Como visualizar as minhas vendas?": 1,
+      "Preciso ter uma máquina de cartão?": 6,
+      "E se eu não quiser ter o produto?": 6,
+      "Como proceder para que minha bateria da Get Smart se mantenha com uma boa duração?": 1,
+      "Posso ter um cartão com a minha Conta?": 1,
+      "A Get Smart aceita pagamento com auxilio emergencial?": 1,
+      "Qual a relação da Get Conta com a instituição de pagamento Dock IP?": 1,
+      "Como insiro o Chip na minha máquina?": 1,
+      "Quais os benefícios do Chip Algar?": 1,
+      "O que é o Chip Algar?": 1,
+      "Quais bandeiras são consideradas para compor o faturamento mínimo estipulado pela condição comercial?": 1,
+      "As condições comerciais são cumulativas?": 1,
+      "O que acontecerá caso ocorra a contratação de uma nova condição comercial?": 1
+    },
+    "by_origin": {
+      "official": {
+        "cases": 7,
+        "recall@3": 0.786,
+        "recall@5": 0.929,
+        "mrr@10": 0.655
+      },
+      "page": {
+        "cases": 40,
+        "recall@3": 0.863,
+        "recall@5": 0.863,
+        "mrr@10": 0.854
+      }
+    },
+    "hit@3_ci": {
+      "k": 41,
+      "n": 47,
+      "lo": 74.8,
+      "hi": 94.0
+    },
+    "ndcg@3": 0.814,
+    "page": {
+      "recall@3": 0.858,
+      "mrr": 0.837,
+      "hit@3": 0.872,
+      "hit@3_ci": {
+        "k": 41,
+        "n": 47,
+        "lo": 74.8,
+        "hi": 94.0
+      }
+    },
+    "latency_ms": {
+      "p50": 886.2,
+      "p95": 1903.9,
+      "mean": 1012.8
+    },
+    "gate": {
+      "min_score": 0,
+      "min_cosine": 0.791,
+      "pos_answered": 0.872,
+      "neg_refused": 1.0,
+      "meets_floor": true,
+      "pos_ci": {
+        "k": 41,
+        "n": 47,
+        "lo": 74.8,
+        "hi": 94.0
+      },
+      "neg_ci": {
+        "k": 20,
+        "n": 20,
+        "lo": 83.9,
+        "hi": 100.0
+      },
+      "positives": 47,
+      "negatives": 20,
+      "neg_refusal_min": 0.85
+    },
+    "separation": {
+      "auc": 1.0,
+      "gap": null,
+      "positives": 47,
+      "negatives": 20,
+      "enough": true,
+      "refused": {
+        "positives": 0,
+        "negatives": 20
+      }
+    },
+    "separation_rerank": {
+      "auc": 1.0,
+      "gap": null,
+      "positives": 47,
+      "negatives": 20,
+      "enough": true,
+      "refused": {
+        "positives": 0,
+        "negatives": 20
+      }
+    },
+    "rerank_gate": null,
+    "essential": 47,
+    "gold_unresolved": [
+      "Como acesso a minha Get Conta?",
+      "Como realizo uma transferência e quais os limites diários?"
+    ],
+    "dedupe_aliases": 23,
+    "retriever": "dense+windows+cross:base",
+    "fallback": "",
+    "path": "agente",
+    "base": {
+      "retriever": "dense+windows",
+      "recall@3": 0.851,
+      "mrr": 0.794,
+      "recall@5": 0.851,
+      "mrr@10": 0.811
+    },
+    "requested": "dense"
+  },
+  "cassette": {
+    "file": "evals/cassettes/parallel.jsonl",
+    "requests": 24,
+    "errors": 0,
+    "repeat": 1,
+    "floors": {
+      "resolved_acc": 100.0,
+      "facts_acc": 100.0,
+      "intent_acc": 100.0,
+      "handoff_acc": 100.0,
+      "handoff_outcome_acc": 100.0,
+      "language_acc": 100.0,
+      "tools_acc": 100.0,
+      "numbers_acc": 100.0,
+      "claims_acc": 100.0,
+      "pass_at_1": 100.0,
+      "max_crashes": 0
+    }
+  },
+  "judge": {
+    "status": "ran",
+    "file": "judge.json",
+    "verdicts": 3,
+    "grounded": 3,
+    "helpful": 3,
+    "judge_unreliable": false
+  }
+}
