@@ -355,9 +355,9 @@ e como comparar pela primeira entrega.
 | 11:21:25 | 26 | evals: fumaça ao vivo official repeat 1 (US$ 0,16; sha 2909340, antes do router do domínio: 10/10 em faq, 2 escalaram clima/câmbio) |
 | 11:48:01 | 53 | evals: rodada 1 ao vivo, 13 splits complete com juiz (official/memory repeat 3) + FAILURE_MODES (análise de erros não revisada) |
 | 11:51:57 | 57 | evals: juiz retomado só no que faltou (--resume, US$ 0,34): status ran; FAILURE_MODES e DEMO regerados |
-| 11:52:21 | 57 | docs: mensagem de entrega (rascunho do T+44) |
+| 12:00:06 | 65 | fix: CI offline — comentário do motor citava ids que colidem com casos do domínio; teste do numpy pula sem numpy (ruff ok, pytest 1778 passed) |
 
-Do primeiro ao último commit: **57 min**, 52 commits (aqui os 10 marcos; todos em `docs/TIMESHEET.md`).
+Do primeiro ao último commit: **65 min**, 54 commits (aqui os 10 marcos; todos em `docs/TIMESHEET.md`).
 <!-- timeline:end -->
 
 </details>

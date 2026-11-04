@@ -85,7 +85,7 @@ arquivos gerados, como `evals/results/`, ficam fora da conta):
 | `Dockerfile` | 74 | 0 | 0 | 0 |
 | `Makefile` | 38 | 0 | 0 | 0 |
 | `OWNERSHIP.json` | 89 | 0 | 0 | 0 |
-| `README.md` | 374 | 13 | 14 | 1 |
+| `README.md` | 374 | 45 | 48 | 1 |
 | `data` | 34 | 56 | 32 | 4 |
 | `data/crm` | 0 | 30 | 0 | 0 |
 | `data/intent_examples.d` | 0 | 22 | 0 | 0 |
@@ -94,7 +94,7 @@ arquivos gerados, como `evals/results/`, ficam fora da conta):
 | `docker-compose.hardened.yml` | 54 | 0 | 0 | 0 |
 | `docker-compose.scale.yml` | 31 | 0 | 0 | 0 |
 | `docker-compose.yml` | 94 | 0 | 0 | 0 |
-| `docs` | 698 | 613 | 13 | 1 |
+| `docs` | 698 | 1020 | 13 | 4 |
 | `docs/adr` | 347 | 16 | 0 | 0 |
 | `docs/changelog.d` | 2244 | 0 | 0 | 0 |
 | `evals` | 8383 | 228 | 33 | 4 |
@@ -111,11 +111,11 @@ arquivos gerados, como `evals/results/`, ficam fora da conta):
 | `requirements-hybrid.lock` | 282 | 0 | 0 | 0 |
 | `requirements.lock` | 149 | 0 | 0 | 0 |
 | `scripts` | 6078 | 0 | 186 | 2 |
-| `src/app` | 14161 | 779 | 0 | 0 |
-| `tests` | 20775 | 172 | 0 | 0 |
+| `src/app` | 14161 | 780 | 1 | 1 |
+| `tests` | 20775 | 175 | 1 | 1 |
 | `tests/fixtures` | 77 | 0 | 0 | 0 |
 
-Total: **55806** linhas do kit (commit `35c5ee1`) e **5909** escritas no relógio (10% do total). Arquivos do kit alterados no relógio: 13. Fora da conta, por serem gerados: 130602 linhas em `evals/results/`.
+Total: **55806** linhas do kit (commit `35c5ee1`) e **6352** escritas no relógio (10% do total). Arquivos do kit alterados no relógio: 18. Fora da conta, por serem gerados: 130602 linhas em `evals/results/`.
 <!-- kit:end -->
 
 Linha do tempo commit a commit, com as tags `clock-start` e `clock-end`: [TIMESHEET.md](TIMESHEET.md).

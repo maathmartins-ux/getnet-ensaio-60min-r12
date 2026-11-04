@@ -1,6 +1,6 @@
 # Linha do tempo (gerada do `git log`)
 
-Relógio: **45 min** de 04/11/2026 11:07:45 a 11:52:21 (tag clock-start à tag clock-end; horário do commit, fuso UTC). 41 commits dentro do relógio, 0 depois e 1 antes (declarados abaixo).
+Relógio: **45 min** de 04/11/2026 11:07:45 a 11:52:21 (tag clock-start à tag clock-end; horário do commit, fuso UTC). 41 commits dentro do relógio, 2 depois e 1 antes (declarados abaixo).
 Maior rajada: 28 commits em até 10 min a partir de 11:15:36.
 
 | min | hora | autor | arquivos | commit | relógio |
@@ -47,5 +47,9 @@ Maior rajada: 28 commits em até 10 min a partir de 11:15:36.
 | 40.3 | 11:48:01 | Claude | 28 | `b9f2ddc` evals: rodada 1 ao vivo, 13 splits complete com juiz (official/memory repeat 3) + FAILURE_ | dentro |
 | 44.2 | 11:51:57 | Claude | 4 | `7dd586f` evals: juiz retomado só no que faltou (--resume, US$ 0,34): status ran; FAILURE_MODES e DE | dentro |
 | 44.6 | 11:52:21 | Claude | 1 | `697b816` docs: mensagem de entrega (rascunho do T+44) | dentro |
+| 44.7 | 11:52:25 | Claude | 6 | `04f98e7` readme: números e linha do tempo (fill_readme, último passo) | pós-relógio |
+| 52.4 | 12:00:06 | Claude | 2 | `e996f91` fix: CI offline — comentário do motor citava ids que colidem com casos do domínio; teste d | pós-relógio |
 
 Commits antes do relógio: anteriores ao início (o repositório antes do scaffold); não contam no tempo declarado.
+
+Commits pós-relógio: não contam no tempo declarado e não entram no que foi medido no prazo.
