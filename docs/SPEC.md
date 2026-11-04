@@ -47,3 +47,55 @@ antes do código. Nenhuma é eco da pergunta.
   R$ 85,50; cai D+1 útil), crédito R$ 480,00 (TX1002, D+30), Pix R$ 60,00 (TX1005, D+0). Recusadas de hoje: TX1007
   crédito R$ 210,00 código 51 (saldo insuficiente), TX1008 débito R$ 75,00 código 05 (não autorizada pelo emissor).
 - 2º cliente `cliente2077` (outro dono; registro dele pedido por `cliente1988` = "não encontrado").
+
+## Taxonomia (intents congeladas; frente R implementa em `flow.py`)
+
+| intent | Plano inicial | Agente(s) | Escala? |
+|---|---|---|---|
+| `knowledge` | `["faq"]` | Knowledge (RAG sobre o site oficial) | só se `insufficient` (nada coberto) |
+| `support` | `["records"]` | Customer Support (tools do CRM) | tool quebrada / registro inexistente → humano oferecido |
+| `troubleshoot` | `["records"]` | Support lê terminal/transação; o manual (faq) vem do achado `needs`, decidido pelo supervisor | não, se o manual cobre |
+| `general` | `["general"]` | agente geral com `weather_forecast`, `currency_rate`, `web_search` | NUNCA (`NO_ESCALATION`) |
+| `multi` | `["faq","records"]` em paralelo | duas perguntas independentes no mesmo turno | — |
+| `human_request` | `["escalation"]` | Human Escalation Agent (fila, operador, retomada) | sim |
+| `blocked` | — | guardrail | não abre caso |
+
+Desempates: (1) pedido explícito de humano vence tudo; (2) pergunta sobre a PRÓPRIA Getnet nunca fica em `general`
+(`OWN_COMPANY = r"\bgetnet\b"` → knowledge); (3) problema com a maquininha/transação do cliente ("won't connect",
+"decline", "erro") = `troubleshoot`; dado da própria conta (depósito, venda, recebível, terminal "está online?") =
+`support`; (4) duas perguntas sobre o MESMO produto = `knowledge`, não multi; (5) seguimento curto que pergunta estado
+ou dado de terminal/transação ("e o outro?", "how long has it been down?") é `support` mesmo depois de um
+troubleshoot; (6) clima, câmbio, notícia = `general`; fora de escopo (receita, curiosidade) = `general`, que recusa
+o conteúdo.
+
+## Resposta parcial
+Knowledge devolve `ok`, `partial` (responde o que a fonte cobre, na 1ª frase, e diz em uma frase o que a fonte não
+cobre; NÃO escala por si) ou `insufficient` (nada coberto → humano oferecido). O supervisor transforma `partial` em
+resposta, nunca em humano. Comparação de dois produtos com fonte de um só = `partial`.
+
+## Seguimentos (`standalone`)
+O router reescreve a pergunta do turno completa e autônoma, no idioma do cliente, resolvendo demonstrativos pelo
+histórico ("e a outra?" = a outra entidade da última resposta; "and the other terminal?" = o terminal que não foi
+citado; "e qual foi o valor dela?" = a transação da última resposta). Vazia se não der para reescrever sem inventar.
+O Knowledge busca com ela.
+
+## Tools do Support (nomes congelados; frente T implementa; identidade vem do servidor, nunca do schema)
+
+| tool | tipo | parâmetros (enum, padrão) | devolve |
+|---|---|---|---|
+| `get_deposit_schedule` | leitura | `period`: `yesterday`\|`today`\|`last_7_days` (padrão `last_7_days`) | vendas aprovadas por modalidade, total por data de depósito (D+0 Pix, D+1 útil débito, D+30 crédito), total geral calculado no código |
+| `list_transactions` | leitura | `status`: `approved`\|`declined`\|`all` (padrão `all`); `period` idem | transações com código de recusa e significado calculados no código |
+| `get_terminal_status` | leitura | `terminal_id` opcional (padrão: todos do cliente) | modelo, conexão, online, `offline_for_hours` só quando offline; emite `needs` → faq (manual de conexão) |
+| `open_support_ticket` | escrita (confirmação) | `terminal_id`, `reason`: `sem_conexao`\|`sem_sinal`\|`erro_transacao` | protocolo |
+| `request_receivables_advance` | escrita, `risk: high` (dono confirma + operador com chave pessoal aprova) | `amount` | pedido pendente de aprovação |
+
+`LABELS` no tools.py para todo valor de lista fechada (pt/en).
+
+## Fora de escopo
+- Contratar maquininha, alterar cadastro, dados bancários: humano.
+- Conselho financeiro, previsão de câmbio: o geral recusa.
+
+## Divisão em forks
+
+Ver OWNERSHIP.json. Contrato: `src/app/schemas.py` (inclui `RouterDecision` e `AgentName`), assinatura de
+`pipeline.handle(req, user_id, identity_verified)` e status `ok|partial|insufficient|error` dos agentes.
