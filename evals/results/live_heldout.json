@@ -14993,11 +14993,21 @@
     }
   },
   "judge": {
+    "status": "ran",
+    "file": "judge.json",
+    "verdicts": 80,
+    "grounded": 74,
+    "helpful": 75,
+    "judge_unreliable": false
+  },
+  "judge_first_pass": {
     "status": "aborted_max_usd",
     "file": "judge.json",
     "verdicts": 70,
     "grounded": 64,
     "helpful": 66,
-    "judge_unreliable": false
+    "judge_unreliable": false,
+    "data_do_juiz": "2026-11-04",
+    "trocado_por": "python -m evals.judge (juiz inteiro de novo)"
   }
 }

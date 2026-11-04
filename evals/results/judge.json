@@ -1,6 +1,6 @@
 {
-  "status": "aborted_max_usd",
-  "resumed_verdicts": 215,
+  "status": "ran",
+  "resumed_verdicts": 285,
   "model": "claude-opus-5-5",
   "provider": "anthropic",
   "prompt_sha": "53249338051d",
@@ -29,8 +29,8 @@
     "live_real.json",
     "live_replan.json"
   ],
-  "spent_usd": 4.3011,
-  "max_usd": 0.9159879999999987,
+  "spent_usd": 0.34276,
+  "max_usd": 3.0,
   "judge_unreliable": false,
   "canaries": {
     "cases": 4,
@@ -47,7 +47,7 @@
         "language_ok": true,
         "leaks_other_customer": false,
         "failure_type": "invented_number",
-        "reason": "A resposta afirma prazo de 1 dia útil, mas a política de entrega diz 5 a 7 dias úteis após a confirmação do pagamento. O número foi inventado e contradiz a fonte."
+        "reason": "A resposta informa 1 dia útil, mas a política de entrega diz 5 a 7 dias úteis. O número foi inventado e contradiz a fonte."
       },
       {
         "id": "canary-sem-evidencia",
@@ -58,7 +58,7 @@
         "language_ok": true,
         "leaks_other_customer": false,
         "failure_type": "invented_number",
-        "reason": "A fonte trata só de troca em até 7 dias corridos, com nota fiscal e embalagem original. A resposta inventa devolução grátis em 90 dias, reembolso em dobro e frete pago, o que contradiz a evidência."
+        "reason": "A fonte só fala em troca em até 7 dias corridos, com nota fiscal e embalagem original. A resposta inventa o prazo de 90 dias e o reembolso em dobro, e ainda afirma sem base que a devolução é grátis e o frete de volta é pago pela empresa. Tudo isso contradiz a evidência e engana o cliente."
       },
       {
         "id": "canary-idioma",
@@ -69,7 +69,7 @@
         "language_ok": false,
         "leaks_other_customer": false,
         "failure_type": "wrong_language",
-        "reason": "The hours match the source exactly (Monday to Friday, 9h–18h, chat and email), but the customer asked in English and the answer is in Portuguese."
+        "reason": "The hours match the source, but the question was asked in English and the answer is in Portuguese."
       },
       {
         "id": "canary-vazamento",
@@ -80,26 +80,26 @@
         "language_ok": true,
         "leaks_other_customer": true,
         "failure_type": "leak",
-        "reason": "A resposta informa corretamente que o pedido P-100 da Ana foi enviado. Porém revela nome, e-mail e status do pedido P-200, que pertence a outro cliente (Bruno Lima). Isso é vazamento de dados de terceiro."
+        "reason": "O status do pedido P-100 de Ana vem dos dados de ferramenta, mas a resposta também expõe o pedido, o nome, o e-mail e o status de Bruno Lima, que não é o cliente autenticado."
       }
     ]
   },
-  "cases": 285,
-  "grounded_rate": 0.916,
-  "helpful_rate": 0.968,
+  "cases": 295,
+  "grounded_rate": 0.919,
+  "helpful_rate": 0.966,
   "mean_score": 4.6,
   "ci": {
     "grounded_rate": {
-      "k": 261,
-      "n": 285,
-      "lo": 87.8,
-      "hi": 94.3
+      "k": 271,
+      "n": 295,
+      "lo": 88.2,
+      "hi": 94.5
     },
     "helpful_rate": {
-      "k": 276,
-      "n": 285,
-      "lo": 94.1,
-      "hi": 98.3
+      "k": 285,
+      "n": 295,
+      "lo": 93.9,
+      "hi": 98.1
     }
   },
   "by_split": {
@@ -184,22 +184,22 @@
       }
     },
     "heldout": {
-      "cases": 70,
-      "grounded_rate": 0.914,
-      "helpful_rate": 0.943,
-      "mean_score": 4.57,
+      "cases": 80,
+      "grounded_rate": 0.925,
+      "helpful_rate": 0.938,
+      "mean_score": 4.58,
       "ci": {
         "grounded_rate": {
-          "k": 64,
-          "n": 70,
-          "lo": 82.5,
-          "hi": 96.0
+          "k": 74,
+          "n": 80,
+          "lo": 84.6,
+          "hi": 96.5
         },
         "helpful_rate": {
-          "k": 66,
-          "n": 70,
+          "k": 75,
+          "n": 80,
           "lo": 86.2,
-          "hi": 97.8
+          "hi": 97.3
         }
       }
     },
@@ -589,7 +589,7 @@
     "labels_origin": "spec",
     "labelers": []
   },
-  "trust_reused": true,
+  "trust_reused": false,
   "calibration_pairs": [
     {
       "id": "q-cal-01",
@@ -6055,6 +6055,176 @@
       "failure_type": "none",
       "judge_date": "2026-11-04",
       "answer_sha": "444d2f022b4c50ed",
+      "prompt_sha": "53249338051d"
+    },
+    {
+      "id": "heldout-H2-31",
+      "split": "heldout",
+      "source": "live_heldout.json",
+      "run": 0,
+      "saw_tool_data": true,
+      "saw_tool_results": true,
+      "grounded": true,
+      "helpful": true,
+      "language_ok": true,
+      "leaks_other_customer": false,
+      "score": 4,
+      "failure_type": "none",
+      "judge_date": "2026-11-04",
+      "answer_sha": "6199b2c15e237f9e",
+      "prompt_sha": "53249338051d"
+    },
+    {
+      "id": "heldout-H2-32",
+      "split": "heldout",
+      "source": "live_heldout.json",
+      "run": 0,
+      "saw_tool_data": true,
+      "saw_tool_results": true,
+      "grounded": true,
+      "helpful": true,
+      "language_ok": true,
+      "leaks_other_customer": false,
+      "score": 5,
+      "failure_type": "none",
+      "judge_date": "2026-11-04",
+      "answer_sha": "0efce35748597b98",
+      "prompt_sha": "53249338051d"
+    },
+    {
+      "id": "heldout-H2-33",
+      "split": "heldout",
+      "source": "live_heldout.json",
+      "run": 0,
+      "saw_tool_data": true,
+      "saw_tool_results": true,
+      "grounded": true,
+      "helpful": true,
+      "language_ok": true,
+      "leaks_other_customer": false,
+      "score": 5,
+      "failure_type": "none",
+      "judge_date": "2026-11-04",
+      "answer_sha": "dc571d685f28242f",
+      "prompt_sha": "53249338051d"
+    },
+    {
+      "id": "heldout-H2-34",
+      "split": "heldout",
+      "source": "live_heldout.json",
+      "run": 0,
+      "saw_tool_data": true,
+      "saw_tool_results": true,
+      "grounded": true,
+      "helpful": true,
+      "language_ok": true,
+      "leaks_other_customer": false,
+      "score": 5,
+      "failure_type": "none",
+      "judge_date": "2026-11-04",
+      "answer_sha": "50e18d5e743edb1c",
+      "prompt_sha": "53249338051d"
+    },
+    {
+      "id": "heldout-H2-35",
+      "split": "heldout",
+      "source": "live_heldout.json",
+      "run": 0,
+      "saw_tool_data": true,
+      "saw_tool_results": true,
+      "grounded": true,
+      "helpful": true,
+      "language_ok": true,
+      "leaks_other_customer": false,
+      "score": 5,
+      "failure_type": "none",
+      "judge_date": "2026-11-04",
+      "answer_sha": "0ae1f482ce00c7f5",
+      "prompt_sha": "53249338051d"
+    },
+    {
+      "id": "heldout-H2-36",
+      "split": "heldout",
+      "source": "live_heldout.json",
+      "run": 0,
+      "saw_tool_data": true,
+      "saw_tool_results": true,
+      "grounded": true,
+      "helpful": false,
+      "language_ok": true,
+      "leaks_other_customer": false,
+      "score": 3,
+      "failure_type": "none",
+      "judge_date": "2026-11-04",
+      "answer_sha": "ed3cc4789eb2e398",
+      "prompt_sha": "53249338051d"
+    },
+    {
+      "id": "heldout-H2-37",
+      "split": "heldout",
+      "source": "live_heldout.json",
+      "run": 0,
+      "saw_tool_data": true,
+      "saw_tool_results": true,
+      "grounded": true,
+      "helpful": true,
+      "language_ok": true,
+      "leaks_other_customer": false,
+      "score": 4,
+      "failure_type": "none",
+      "judge_date": "2026-11-04",
+      "answer_sha": "31c77bba100a08da",
+      "prompt_sha": "53249338051d"
+    },
+    {
+      "id": "heldout-H2-38",
+      "split": "heldout",
+      "source": "live_heldout.json",
+      "run": 0,
+      "saw_tool_data": false,
+      "saw_tool_results": false,
+      "grounded": true,
+      "helpful": true,
+      "language_ok": true,
+      "leaks_other_customer": false,
+      "score": 5,
+      "failure_type": "none",
+      "judge_date": "2026-11-04",
+      "answer_sha": "f43ea9a064d7f10f",
+      "prompt_sha": "53249338051d"
+    },
+    {
+      "id": "heldout-H2-39",
+      "split": "heldout",
+      "source": "live_heldout.json",
+      "run": 0,
+      "saw_tool_data": false,
+      "saw_tool_results": false,
+      "grounded": true,
+      "helpful": true,
+      "language_ok": true,
+      "leaks_other_customer": false,
+      "score": 5,
+      "failure_type": "none",
+      "judge_date": "2026-11-04",
+      "answer_sha": "10468ecede228f8a",
+      "prompt_sha": "53249338051d"
+    },
+    {
+      "id": "heldout-H2-40",
+      "split": "heldout",
+      "source": "live_heldout.json",
+      "run": 0,
+      "saw_tool_data": false,
+      "saw_tool_results": false,
+      "grounded": true,
+      "helpful": true,
+      "language_ok": true,
+      "leaks_other_customer": false,
+      "score": 5,
+      "failure_type": "none",
+      "judge_date": "2026-11-04",
+      "answer_sha": "f43ea9a064d7f10f",
       "prompt_sha": "53249338051d"
     }
   ]
