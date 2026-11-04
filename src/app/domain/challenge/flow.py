@@ -41,6 +41,7 @@ _GENERAL = re.compile(r"\b(weather|clima|tempo amanh|previs[aã]o do tempo|forec
                       r"|cota[cç][aã]o|d[oó]lar|euro|not[ií]cia|news|receita|recipe)\b", re.IGNORECASE)
 _PRODUCT = re.compile(r"\b(get\s*\w+|pix|credi[aá]rio|link de pagamento|payment link|antecipa\w*|parcelas?|aluguel"
                       r"|installments?|get conta|maquininhas?)\b", re.IGNORECASE)
+_ACTION = re.compile(r"\b(open|abr[aei]\w*)\b.{0,30}\b(ticket|chamado)\b", re.IGNORECASE)
 _OWN = re.compile(r"\bgetnet\b", re.IGNORECASE)
 _STATE_FOLLOWUP = re.compile(r"\b(outr[oa]|other|how long|h[aá] quanto tempo|valor|code|c[oó]digo|modelo|model"
                              r"|credit|cr[eé]dito|pix|online|offline|down)\b", re.IGNORECASE)
@@ -56,6 +57,8 @@ def clause_intent(text: str, history: list[dict], r) -> str | None:
     """Intenção de UMA cláusula, com os desempates da SPEC. `r` = módulo app.router."""
     if _HUMAN.search(text):  # (1) pedido explícito de humano vence tudo
         return "human_request"
+    if _ACTION.search(text):  # pedido de ação sobre a conta (chamado) é support, mesmo citando o problema
+        return "support"
     if _TROUBLE.search(text):  # (3) problema com maquininha/transação
         return "troubleshoot"
     if _SUPPORT.search(text):  # (3) dado da própria conta
@@ -66,6 +69,8 @@ def clause_intent(text: str, history: list[dict], r) -> str | None:
     if last in ("support", "troubleshoot", "multi") and _STATE_FOLLOWUP.search(text):  # (5)
         return "support"
     if last == "knowledge" and _FOLLOWUP.search(text):
+        return "knowledge"
+    if _PRODUCT.search(text):  # produto citado sem regra de conta/problema: base de conhecimento
         return "knowledge"
     if (near := r.knn_intent(text)) is not None:
         if near == "general" and _OWN.search(text):
