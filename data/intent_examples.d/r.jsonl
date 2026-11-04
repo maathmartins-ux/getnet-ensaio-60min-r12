@@ -1,0 +1,22 @@
+{"text": "Quais as taxas da maquininha de entrada?", "intent": "knowledge"}
+{"text": "How much does the tap-to-pay app cost?", "intent": "knowledge"}
+{"text": "A conta digital tem tarifa de manutenção?", "intent": "knowledge"}
+{"text": "Is there a limit on installments for card sales?", "intent": "knowledge"}
+{"text": "Como funciona o QR code do Pix na maquininha?", "intent": "knowledge"}
+{"text": "Which machine prints receipts?", "intent": "knowledge"}
+{"text": "Quanto recebi no débito na semana passada?", "intent": "support"}
+{"text": "Show my approved card sales from this week", "intent": "support"}
+{"text": "Meu terminal reserva está ligado agora?", "intent": "support"}
+{"text": "What was the total of my credit sales?", "intent": "support"}
+{"text": "Abre um chamado para o meu terminal parado", "intent": "support"}
+{"text": "Quero antecipar parte das minhas vendas a prazo", "intent": "support"}
+{"text": "A tela da maquininha travou e não passa venda", "intent": "troubleshoot"}
+{"text": "My terminal keeps rejecting contactless cards", "intent": "troubleshoot"}
+{"text": "A bobina acabou e a máquina dá erro", "intent": "troubleshoot"}
+{"text": "Payment fails with an error on my device", "intent": "troubleshoot"}
+{"text": "Vai chover em Recife no sábado?", "intent": "general"}
+{"text": "How much is the dollar in reais now?", "intent": "general"}
+{"text": "Me passa uma receita de bolo de cenoura", "intent": "general"}
+{"text": "Who won the football match yesterday?", "intent": "general"}
+{"text": "Preciso de uma pessoa do atendimento, por favor", "intent": "human_request"}
+{"text": "Transfer me to a live agent", "intent": "human_request"}
