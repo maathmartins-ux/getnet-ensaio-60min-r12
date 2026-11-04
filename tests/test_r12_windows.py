@@ -145,7 +145,9 @@ def test_only_the_top_slice_of_window_gains_counts():
 
 
 def test_percentile_is_numpy_linear():
-    import numpy as np
+    import pytest
+
+    np = pytest.importorskip("numpy")  # o job offline da CI não instala numpy
 
     values = [0.3, -0.1, 0.07, 0.2, 0.011, 0.5, 0.0]
     for pct in (0, 10, 50, 90, 95, 100):

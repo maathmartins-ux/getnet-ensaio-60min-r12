@@ -115,7 +115,7 @@ def _agent_words(m: re.Match, language: str) -> str:
 # delimitavam. O resto da frase fica como estava; a maiúscula muda só quando a frase passa a começar ali.
 # A limpeza nunca apaga conteúdo; na dúvida, o texto fica e sai só o código (revisão adversarial da rodada 12: a
 # lista única de aberturas, pt e en juntos, comia a última palavra da frase, "de cada uma [ref]" → "de cada", gravado
-# em dependent-07 e real-31; a contagem "até 2 palavras" apagava a resposta curta, "15 minutos conforme [ref]."):
+# em 2 casos da entrega anterior; a contagem "até 2 palavras" apagava a resposta curta, "15 minutos conforme [ref]."):
 # - abertura é a palavra que introduz a citação: locução de adjunto ("conforme", "segundo a", "per") ou apontador
 #   ("veja", "see"); no português também a preposição e o artigo definido (lá a preposição não fica solta no fim da
 #   frase: em "está em [ref]" a citação era o objeto); no inglês a preposição só abrindo a oração ("From [ref], I
