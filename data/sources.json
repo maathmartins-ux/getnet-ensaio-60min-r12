@@ -1,31 +1,46 @@
 {
   "_doc": "Páginas do site oficial da Getnet para `python -m app.ingest` (frente K). allowed_hosts = só o domínio do país do enunciado.",
-  "allowed_hosts": ["site.getnet.com.br"],
+  "allowed_hosts": [
+    "site.getnet.com.br"
+  ],
   "groups": {
-    "produtos": {"prefix": "prod", "pages": {
-      "maquininhas": "https://site.getnet.com.br/todas-as-maquininhas/",
-      "taxas": "https://site.getnet.com.br/taxas/",
-      "pix": "https://site.getnet.com.br/pix/",
-      "crediario": "https://site.getnet.com.br/crediario/",
-      "link-de-pagamento": "https://site.getnet.com.br/link-de-pagamento/",
-      "pagamentos-pelo-whatsapp": "https://site.getnet.com.br/pagamentos-pelo-whatsapp/",
-      "get-tap": "https://site.getnet.com.br/get-tap/"
-    }},
-    "suporte": {"prefix": "sup", "pages": {
-      "duvidas": "https://site.getnet.com.br/duvidas/",
-      "get-conta-o-que-e": "https://site.getnet.com.br/get-ajuda-get-conta/o-que-e-a-get-conta/",
-      "get-conta-acesso": "https://site.getnet.com.br/get-ajuda-get-conta/como-acesso-a-minha-get-conta/",
-      "get-conta-transferencia": "https://site.getnet.com.br/get-ajuda-get-conta/como-realizo-uma-transferencia-e-quais-os-limites-diarios/",
-      "pix-habilitar": "https://site.getnet.com.br/get-ajuda-pix/como-habilitar-o-recebimento-de-vendas-via-pix-no-aplicativo-getnet-brasil/",
-      "pix-venda": "https://site.getnet.com.br/get-ajuda-pix/como-fazer-uma-venda-com-pix-na-maquininha/",
-      "antecipar-app": "https://site.getnet.com.br/get-ajuda-antecipacao-de-venda/como-antecipar-sua-vendas-pelo-app/",
-      "antecipacao-automatica-app": "https://site.getnet.com.br/get-ajuda-antecipacao-de-venda/como-habilitar-antecipacao-automatica-pelo-app/",
-      "antecipacao-automatica-portal": "https://site.getnet.com.br/get-ajuda-antecipacao-de-venda/como-habilitar-antecipacao-automatica-pelo-portal/",
-      "wifi": "https://site.getnet.com.br/get-ajuda-configuracoes/como-configurar-o-wi-fi-na-sua-maquininha-getnet/",
-      "erro-adq-1-50": "https://site.getnet.com.br/get-ajuda-erros-maquininha/erro-adq-1-50/",
-      "erro-adq-4-83": "https://site.getnet.com.br/get-ajuda-erros-maquininha/erro-adq-4-83/",
-      "erro-adq-4-91": "https://site.getnet.com.br/get-ajuda-erros-maquininha/erro-adq-4-91/",
-      "venda-maquininha": "https://site.getnet.com.br/get-ajuda-maquininha/como-fazer-uma-venda-na-maquininha-getnet/"
-    }}
+    "produtos": {
+      "prefix": "prod",
+      "pages": {
+        "maquininhas": "https://site.getnet.com.br/todas-as-maquininhas/",
+        "taxas": "https://site.getnet.com.br/taxas/",
+        "pix": "https://site.getnet.com.br/pix/",
+        "crediario": "https://site.getnet.com.br/crediario/",
+        "link-de-pagamento": "https://site.getnet.com.br/link-de-pagamento/",
+        "pagamentos-pelo-whatsapp": "https://site.getnet.com.br/pagamentos-pelo-whatsapp/",
+        "get-tap": "https://site.getnet.com.br/get-tap/"
+      }
+    },
+    "suporte": {
+      "prefix": "sup",
+      "pages": {
+        "duvidas": "https://site.getnet.com.br/duvidas/",
+        "get-conta-o-que-e": "https://site.getnet.com.br/get-ajuda-get-conta/o-que-e-a-get-conta/",
+        "get-conta-acesso": "https://site.getnet.com.br/get-ajuda-get-conta/como-acesso-a-minha-get-conta/",
+        "get-conta-transferencia": "https://site.getnet.com.br/get-ajuda-get-conta/como-realizo-uma-transferencia-e-quais-os-limites-diarios/",
+        "pix-habilitar": "https://site.getnet.com.br/get-ajuda-pix/como-habilitar-o-recebimento-de-vendas-via-pix-no-aplicativo-getnet-brasil/",
+        "pix-venda": "https://site.getnet.com.br/get-ajuda-pix/como-fazer-uma-venda-com-pix-na-maquininha/",
+        "antecipar-app": "https://site.getnet.com.br/get-ajuda-antecipacao-de-venda/como-antecipar-sua-vendas-pelo-app/",
+        "antecipacao-automatica-app": "https://site.getnet.com.br/get-ajuda-antecipacao-de-venda/como-habilitar-antecipacao-automatica-pelo-app/",
+        "antecipacao-automatica-portal": "https://site.getnet.com.br/get-ajuda-antecipacao-de-venda/como-habilitar-antecipacao-automatica-pelo-portal/",
+        "wifi": "https://site.getnet.com.br/get-ajuda-configuracoes/como-configurar-o-wi-fi-na-sua-maquininha-getnet/",
+        "erro-adq-1-50": "https://site.getnet.com.br/get-ajuda-erros-maquininha/erro-adq-1-50/",
+        "erro-adq-4-83": "https://site.getnet.com.br/get-ajuda-erros-maquininha/erro-adq-4-83/",
+        "erro-adq-4-91": "https://site.getnet.com.br/get-ajuda-erros-maquininha/erro-adq-4-91/",
+        "venda-maquininha": "https://site.getnet.com.br/get-ajuda-maquininha/como-fazer-uma-venda-na-maquininha-getnet/",
+        "duvidas-get-smart": "https://site.getnet.com.br/duvidas/get-smart/",
+        "duvidas-get-conta": "https://site.getnet.com.br/duvidas/get-conta/",
+        "duvidas-pix": "https://site.getnet.com.br/duvidas/pix/",
+        "duvidas-pix-mais-respostas": "https://site.getnet.com.br/duvidas/pix-mais-respostas/",
+        "duvidas-antecipacao-de-vendas": "https://site.getnet.com.br/duvidas/antecipacao-de-vendas/",
+        "duvidas-crediario": "https://site.getnet.com.br/duvidas/crediario/",
+        "duvidas-link-de-pagamento": "https://site.getnet.com.br/duvidas/link-de-pagamento/"
+      }
+    }
   }
 }

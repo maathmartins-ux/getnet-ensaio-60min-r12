@@ -41,3 +41,13 @@ def test_other_owner_is_not_found(domain_data):
 def test_labels_cover_closed_values(domain_data):
     for v in T.PERIODS + T.REASONS + ["reason", "period", "request_receivables_advance", "open_support_ticket"]:
         assert set(T.LABELS[v]) == {"pt", "en"}
+
+
+def test_deposit_schedule_marks_what_already_fell_and_keeps_totals(domain_data):
+    """Pix D+0 de ontem já caiu: a tool diz isso e separa os totais (o modelo não compara datas)."""
+    from app.domain.challenge import tools as t
+    data = t._deposit_schedule("cliente1988", "yesterday")["data"]
+    pix = next(m for m in data["by_method"] if m["method"] == "pix")
+    credit = next(m for m in data["by_method"] if m["method"] == "credit")
+    assert pix["already_deposited"] is True and credit["already_deposited"] is False
+    assert round(data["already_deposited_total"] + data["to_be_deposited_total"], 2) == data["total"]

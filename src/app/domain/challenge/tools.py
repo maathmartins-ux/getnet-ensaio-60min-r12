@@ -142,13 +142,20 @@ def _deposit_schedule(user_id: str, period: str = DEFAULT_PERIOD) -> dict:
             m["deposit_dates"].append(dep)
         by_date[dep] = _money(by_date.get(dep, 0.0) + t["amount"])
     rule = {"pix": "D+0", "debit": "D+1 útil", "credit": "D+30"}
+    today = clock.today().isoformat()
     for m in by_method.values():
         m["rule"] = rule[m["method"]]
+        # já caiu (data de depósito ≤ hoje) × a cair: o modelo não compara datas (medido ao vivo: o Pix D+0 de
+        # ontem sumiu da resposta quando só a data vinha)
+        m["already_deposited"] = all(d <= today for d in m["deposit_dates"])
+    deposited = _money(sum(v for d, v in by_date.items() if d <= today))
     return {"ok": True, "data": {
         "period": period, "today": clock.today().isoformat(),
         "by_method": list(by_method.values()),
         "by_deposit_date": [{"deposit_date": d, "total": v} for d, v in sorted(by_date.items())],
         "count": len(approved), "total": _money(sum(t["amount"] for t in approved)),
+        "already_deposited_total": deposited,
+        "to_be_deposited_total": _money(sum(t["amount"] for t in approved) - deposited),
     }}
 
 
