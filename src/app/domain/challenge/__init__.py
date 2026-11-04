@@ -16,7 +16,8 @@ from .tools import *  # noqa: F403
 MIN_SCORE = 0.5
 # Portão pela nota do cross-encoder (só com rerank): None = desligado. O valor do desafio sai de
 # `retrieval_eval` (rerank_gate: menor limiar que recusa >= 85% dos sem fonte) e vai para o challenge.
-MIN_RERANK: float | None = None
+# run_evals --calibrate-rerank-gate (04/11/2026): responde 100% dos com fonte, recusa 100% dos sem fonte (n=47/20)
+MIN_RERANK = -4.986
 
 # --- prompts ------------------------------------------------------------------------------------------------
 # None = prompts do kit (src/app/prompts). O pré-voo aponta o challenge para src/app/domain/challenge_prompts.
