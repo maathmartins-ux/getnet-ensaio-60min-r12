@@ -23,8 +23,16 @@ tabelas completas, em [docs/RESULTS.md](docs/RESULTS.md); o que veio do kit, em 
 <!-- scorecard:begin -->
 | medida | valor | como se mede |
 |---|---:|---|
-
-Não medido nesta entrega: Oficiais resolvidas (sem humano + todo fato + fonte); Oficiais resolvidas: pass^k (todas as rodadas); Juiz: respostas oficiais fundamentadas; Juiz: respostas oficiais úteis (helpful); Memória ao vivo: pass@1; Humano no laço: resposta do operador no mesmo turno (split hitl); Busca: Recall@3; Busca: MRR; Turnos resolvidos sem humano (ao vivo, todos os splits); Custo por turno resolvido sem humano (ao vivo).
+| Oficiais resolvidas (sem humano + todo fato + fonte) | 0.90 | resposta sem humano, com todo fato de referência do cenário e com fonte (os 10 do enunciado) |
+| Oficiais resolvidas: pass^k (todas as rodadas) | 0.80 | o mesmo, em todas as rodadas de cada cenário |
+| Juiz: respostas oficiais fundamentadas | 0.83 | juiz LLM com o texto das fontes: cada afirmação apoiada nelas |
+| Juiz: respostas oficiais úteis (helpful) | 1.00 | juiz LLM: a resposta resolve o que o lojista perguntou |
+| Memória ao vivo: pass@1 | 0.96 | conversas de vários turnos: o fato do turno anterior chega à resposta |
+| Humano no laço: resposta do operador no mesmo turno (split hitl) | 1.00 | operadora simulada responde o caso aberto no turno dentro da espera: a resposta dela e os passos pendentes saem no mesmo turno (a que chega depois vai pela retomada, uma vez só) |
+| Busca: Recall@3 | 0.85 | perguntas rotuladas olhando a fonte: a página certa entre as 3 primeiras |
+| Busca: MRR | 0.81 | posição média da primeira página certa (1 = sempre em primeiro) |
+| Turnos resolvidos sem humano (ao vivo, todos os splits) | 0.85 | todas as execuções ao vivo, de todos os splits: resposta sem pedir humano e sem erro (recusa do guardrail conta; o fato se confere só nas oficiais resolvidas) |
+| Custo por turno resolvido sem humano (ao vivo) | US$ 0.0261 | gasto ao vivo de todos os splits (inclusive turnos que foram ao humano e turnos anteriores das conversas) ÷ as execuções resolvidas da linha acima |
 <!-- scorecard:end -->
 
 ### 0.1 Mapeamento do desafio
@@ -74,10 +82,10 @@ curl -s -X POST localhost:8000/auth/logout -H "Authorization: Bearer $TOKEN"   #
 
 <!-- quickstart:begin -->
 ```bash
-# 1º caso oficial (official-01, evals/cases.jsonl), como o cliente u1, com o $TOKEN do passo Entrar
-# (atalho de teste, sem senha: TOKEN=$(docker compose exec -T api python -m app.auth u1))
+# 1º caso oficial (official-01, evals/cases.jsonl), como o cliente cliente1988, com o $TOKEN do passo Entrar
+# (atalho de teste, sem senha: TOKEN=$(docker compose exec -T api python -m app.auth cliente1988))
 curl -s -X POST localhost:8000/chat -H "Authorization: Bearer $TOKEN" \
-     -H "Content-Type: application/json" -d '{"message": "Qual o prazo de entrega para São Paulo?"}'
+     -H "Content-Type: application/json" -d '{"message": "What'\''s the difference between the Get Clássica and the Get Smart?"}'
 ```
 <!-- quickstart:end -->
 
@@ -160,7 +168,7 @@ No desafio Getnet a divisão ganha a intenção `troubleshoot` (o suporte lê o 
 - **Storage**: trechos em JSONL versionado em `data/` (id, URL, `fetched_at`, sha256); vetores do denso em cache no
   disco.
 <!-- retriever:begin -->
-- **Retrieval** (`src/app/rag.py`; frase gerada de `KIT_RETRIEVER` por `scripts/fill_readme.py`): `dense+cross:base`: denso `multilingual-e5-large` + cross-encoder `bge-reranker-v2-m3-int8` (top-10, 600 caracteres por trecho) — ordem do denso; nota do cross só no portão sem fonte: o redator lê os trechos na ordem do denso. Padrão do kit (`KIT_RETRIEVER` em `src/app/config.py`), sem medida no domínio: `run_evals --choose-retriever --apply` mede e grava `data/retriever.json`.
+- **Retrieval** (`src/app/rag.py`; frase gerada de `KIT_RETRIEVER` por `scripts/fill_readme.py`): `dense+windows+cross:base`: denso `multilingual-e5-large` + cross-encoder `bge-reranker-v2-m3-int8` (top-10, 600 caracteres por trecho) — ordem do denso; nota do cross só no portão sem fonte: o redator lê os trechos na ordem do denso. Padrão do kit (`KIT_RETRIEVER` em `src/app/config.py`), sem medida no domínio: `run_evals --choose-retriever --apply` mede e grava `data/retriever.json`.
 <!-- retriever:end -->
 - **Busca no caminho do agente:** a 1ª busca usa as palavras do cliente e a pergunta reescrita pelo router entra
   junto; as buscas do plano rodam em paralelo (`FAQ_SEARCH_PARALLEL`) e, quando o plano gasta o teto, o redator
@@ -260,7 +268,7 @@ duas existe (`tests/test_evidence.py` falha se um sumir).
 | Evaluation & Quality Engineering | Manchete **oficiais resolvidas** (sem humano + todo fato + fonte); juiz LLM com canários; `expect.after_human` mede o plano depois do humano | `evals/run_evals.py`, `evals/judge.py` | `tests/test_e53_resolved.py::test_resolved_needs_no_handoff_every_fact_and_a_source`, `tests/test_r12_after_human.py::test_agent_after_the_answered_escalation_passes` | juiz da mesma família do modelo avaliado |
 | Observability, Reliability & Cost | Log JSON com `trace_id`; US$ e tokens por request, com o **cache de prompt** na conta; `/metrics` com histograma de latência e **alertas Prometheus provisionados** | `src/app/observability.py`, `ops/alerts.yml` | `tests/test_r12_prompt_cache.py::test_cost_counts_the_cache_write_premium_and_the_cheap_read` | custo pela tabela de preços do kit, não pela fatura |
 | Production Engineering | Imagem multi-stage não-root com base fixada por digest, lockfiles, smoke do container e **2 réplicas atrás de balanceador** no CI; overlay de produção endurecido | `Dockerfile`, `docker-compose.hardened.yml` | `tests/test_supply_chain.py::test_hardened_overlay` | com SQLite, réplicas só no mesmo host ([ADR 0002](docs/adr/0002-replicas-mesmo-host.md)) |
-| Engineering Judgment | Cada decisão com a alternativa descartada e o número que decidiu; o considerado e não feito, com a medida | [`docs/adr/`](docs/adr/) | §4 e §9; prompts sem frase de caso de avaliação (`tests/test_router_contamination.py::test_domain_prompts_do_not_copy_eval_questions`) | {{o que foi medido no corpus deste desafio}} |
+| Engineering Judgment | Cada decisão com a alternativa descartada e o número que decidiu; o considerado e não feito, com a medida | [`docs/adr/`](docs/adr/) | §4 e §9; prompts sem frase de caso de avaliação (`tests/test_router_contamination.py::test_domain_prompts_do_not_copy_eval_questions`) | neste corpus: portão do rerank × BM25 por idioma (commit `gate:`), gold essencial com 2 rotuladores cegos e o Jaccard entre eles (`evals/essential/report.json`) |
 
 ## 4. Design choices and trade-offs (decisões)
 
@@ -318,11 +326,11 @@ As perguntas que uma entrevista técnica faria, respondidas com o número medido
 
 | Pergunta | Resposta curta | Onde está a prova |
 |---|---|---|
-| Quais respostas oficiais o juiz reprova, e por quê, se intenção e ferramentas acertam? | {{causas por caso, antes × depois}} | `docs/JUDGE_DIFF.md` |
+| Quais respostas oficiais o juiz reprova, e por quê, se intenção e ferramentas acertam? | official-04 (Pix sem conta bancária): a busca do caminho do agente trouxe só trechos de Pix, sem o da Get Conta que está no corpus e no top-5 da busca direta (`official_check`); official-01: numa repetição o redator leu a linha errada da tabela de aluguel. Sem rodada 2 no relógio: não há "depois" medido (JUDGE_DIFF não medido) | `docs/JUDGE_DIFF.md` |
 | O rerank tem ganho medido? Por que está (ou não) no caminho? | não remedido no relógio: o buscador é o padrão do kit, escolhido antes por medida fora daqui; o rerank decide só o portão sem fonte, calibrado neste domínio (commit `gate:`); `make compare` refaz a tabela | `evals/results/retrieval_compare.json` |
-| Onde a memória perde informação? | {{memória × roteamento, separados}} | §0 e `docs/RESULTS.md` |
+| Onde a memória perde informação? | o split `memory` mede o fato lembrado (`expects_fact`) separado da intenção; os números e as falhas estão no §0 e em `docs/RESULTS.md` | §0 e `docs/RESULTS.md` |
 | Quanto do kit foi escrito depois das correções anteriores? | o motor inteiro veio do kit; o domínio inteiro foi escrito no relógio (ver `git log` desde o commit de scaffold e [docs/PROCEDENCIA.md](docs/PROCEDENCIA.md)) | `docs/PROCEDENCIA.md` |
-| Como medir o ganho do replanejamento em perguntas reais? | {{split de perguntas reais de lojistas, com e sem}} | `evals/results/ablation_replan*.json` |
+| Como medir o ganho do replanejamento em perguntas reais? | o split `real` (40 perguntas públicas com link) rodou ao vivo com o achado `needs`; o braço sem (`--ablate-replan --mode no_needs --split real`) não rodou no relógio, então o ganho não está medido | `evals/results/ablation_replan*.json` |
 
 ## 8. Procedência e linha do tempo
 
@@ -338,28 +346,18 @@ e como comparar pela primeira entrega.
 <!-- timeline:begin -->
 | hora (UTC; Brasília = UTC−3) | min | commit |
 |---|---:|---|
-| 14:07:00 | 0 | chore: scaffold from entregar-desafio-cronometrado kit v3.6.0 |
-| 10:02:26 | 2455 | evals: linha grava context (evidência + cartão, com teto) e a checagem claims |
-| 10:04:28 | 2457 | evals: réplica offline da checagem de frases sobre as 30 respostas oficiais da v4 |
-| 12:25:09 | 2598 | evals: buscador aquecido antes do 1º caso, como a API faz (frio, a carga do denso estourava o NODE_TIMEOUT e o official-01 ia ao humano) |
-| 12:32:21 | 2605 | evals: calibração do portão sobre o BM25 quando é ele que confere a cobertura (sobre o denso dava MIN_SCORE = 0 e replan 0% de handoff) |
-| 13:29:58 | 2663 | eval ao vivo: splits num processo só (run_evals --live --splits), live_eval.sh/.ps1 sem um processo por split |
-| 16:27:32 | 2841 | evals: gold de passagens essenciais rotulado às cegas por 2 rotuladores (export sem ordem da busca, import com consenso e concordância); PROMPTS da K usa |
-| 19:24:46 | 3018 | preflight: confere ramo padrão main e kit-fonte consumido antes de mexer em qualquer arquivo |
-| 22:12:17 | 3185 | eval ao vivo: teto de casos simultâneos no processo (LIVE_MAX_CONCURRENT=12) — 44 conversas ao mesmo tempo estouraram o timeout do faq |
-| 12:21:07 | 4034 | eval: apaga os bancos temporários de cada caso no fim (inclusive em aborto) — 13.395 pastas eval-* (18 GB) encheram o disco da nuvem e derrubaram uma bateria |
-| 15:39:15 | 4232 | eval: linha de red team offline diz informativo, não FAIL (o gate vale ao vivo/replay) |
-| 15:41:34 | 4235 | final.sh: commit final leva todos os arquivos que o fill_readme gera (PROCEDENCIA conta o git) |
-| 16:01:29 | 4254 | eval: cota de cada split pelo custo por caso medido (replan/dependent abortavam com a cota da memória) |
-| 17:53:27 | 4366 | eval: idioma do redator só conta com LLM (o modo offline cita a fonte sem traduzir) |
-| 17:56:41 | 4370 | eval: métrica sem valor não vira linha de traços; nota do idioma offline |
-| 18:23:25 | 4396 | eval ao vivo: cota medida tem piso nos turnos (rodada em timeout não encolhe a cota) |
-| 06:28:52 | 5122 | eval(kit): live_*.json grava a carga; trace_stats declara a carga do SLO e tira os bloqueios do guardrail |
-| 06:47:59 | 5141 | eval(kit): todo lote cego do held-out fica fora do gate de intenção pelo prefixo (heldout_h3) |
-| 07:39:51 | 5193 | eval(kit): ablação em commits com o mesmo código não sai como AVISO; o gold de busca citado é onde ele está (retrieval.d/) |
-| 08:15:02 | 5228 | docs(kit): rodada 11 no registro (8,92: 8,90 / 8,89 / 8,96, 3 réguas) |
+| 10:55:10 | 0 | chore: repositório (antes do relógio) |
+| 11:07:45 | 13 | chore: scaffold from entregar-desafio-cronometrado kit v5.4.0 |
+| 11:10:26 | 15 | spec: oficiais (10 cenários com fatos e entidades) |
+| 11:13:19 | 18 | spec: taxonomia, desempates, parcial, standalone, tools + 58 casos (replan 20, dependent 10, memory 16, hitl 6, parallel 3, approval 3) |
+| 11:13:46 | 19 | spec: taxonomia, desempates, parcial, standalone, tools + 58 casos (replan 20, dependent 10, memory 16, hitl 6, parallel 3, approval 3) |
+| 11:17:15 | 22 | evals: split real (40) entra nos casos, fora do gate |
+| 11:21:25 | 26 | evals: fumaça ao vivo official repeat 1 (US$ 0,16; sha 2909340, antes do router do domínio: 10/10 em faq, 2 escalaram clima/câmbio) |
+| 11:48:01 | 53 | evals: rodada 1 ao vivo, 13 splits complete com juiz (official/memory repeat 3) + FAILURE_MODES (análise de erros não revisada) |
+| 11:51:57 | 57 | evals: juiz retomado só no que faltou (--resume, US$ 0,34): status ran; FAILURE_MODES e DEMO regerados |
+| 11:52:21 | 57 | docs: mensagem de entrega (rascunho do T+44) |
 
-Do primeiro ao último commit: **5228 min**, 400 commits (aqui os 20 marcos; todos em `docs/TIMESHEET.md`).
+Do primeiro ao último commit: **57 min**, 52 commits (aqui os 10 marcos; todos em `docs/TIMESHEET.md`).
 <!-- timeline:end -->
 
 </details>
@@ -369,5 +367,5 @@ Do primeiro ao último commit: **5228 min**, 400 commits (aqui os 20 marcos; tod
 Cada limitação com o efeito que ela tem e o que faltaria para resolver:
 
 - Simulado: o CRM (`data/crm/`, dois clientes com datas relativas a hoje) e a operadora humana nos testes de HITL (`evals/operator_sim.py`). Efeito: as respostas de suporte provam o caminho (tool → total calculado no código → resposta), não a integração com o sistema real da Getnet; faltaria o conector do backoffice com o mesmo schema e a fila ligada ao time de atendimento.
-- {{cada medida do §0 abaixo da referência ou não medida: o mecanismo, o número e o custo de corrigir}}
-- {{o que ficou de fora e por quê; o que não rodou no relógio}}
+- Cada medida do §0 abaixo da referência ou não medida tem o número no próprio §0 (gerado). Mecanismos conhecidos: official-04 perde a Get Conta na busca do agente (corrigir: glossário/consulta do plano e regravar o split official, ~US$ 0,6); official-01 lê a tabela de aluguel fora de alinhamento numa repetição (corrigir: ingerir a tabela linha a linha); o guardrail offline é só a camada de regex do motor e não barra parte dos ataques escritos à mão (o número que vale é o ao vivo, no §0); concordância humana não medida (ensaio sem rotulador por decisão do dono; na produção, 2 rotuladores); análise de erros não revisada (0 linhas revisadas pelo dono).
+- Cortes do relógio (§2.1 do roteiro): rodada 2 não medida (JUDGE_DIFF "não medido"); sem vídeo; ablação do replanejamento nas perguntas reais não rodou; `check.py --docker --scale` não reconferido no relógio (o Docker Hub devolveu 429 no aquecimento da imagem); o gate offline completo (`make eval`) foi interrompido para a bateria ao vivo começar; factual sem validação humana — ensaio sem rotulador por decisão do dono (na produção, 2 rotuladores).

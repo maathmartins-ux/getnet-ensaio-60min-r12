@@ -72,6 +72,50 @@ Linhas do kit no commit de scaffold × linhas escritas no relógio, por pasta (g
 arquivos gerados, como `evals/results/`, ficam fora da conta):
 
 <!-- kit:begin -->
+| pasta | linhas do kit | + no relógio | − no relógio | arquivos do kit alterados |
+|---|---:|---:|---:|---:|
+| `.claude` | 121 | 0 | 0 | 0 |
+| `.dockerignore` | 15 | 0 | 0 | 0 |
+| `.env.example` | 60 | 0 | 0 | 0 |
+| `.github` | 169 | 0 | 0 | 0 |
+| `.gitignore` | 8 | 0 | 0 | 0 |
+| `.gitleaks.toml` | 16 | 0 | 0 | 0 |
+| `.trivyignore` | 8 | 0 | 0 | 0 |
+| `CLAUDE.md` | 15 | 0 | 15 | 1 |
+| `Dockerfile` | 74 | 0 | 0 | 0 |
+| `Makefile` | 38 | 0 | 0 | 0 |
+| `OWNERSHIP.json` | 89 | 0 | 0 | 0 |
+| `README.md` | 374 | 13 | 14 | 1 |
+| `data` | 34 | 56 | 32 | 4 |
+| `data/crm` | 0 | 30 | 0 | 0 |
+| `data/intent_examples.d` | 0 | 22 | 0 | 0 |
+| `data/knowledge` | 0 | 269 | 0 | 0 |
+| `docker-compose.demo.yml` | 10 | 0 | 0 | 0 |
+| `docker-compose.hardened.yml` | 54 | 0 | 0 | 0 |
+| `docker-compose.scale.yml` | 31 | 0 | 0 | 0 |
+| `docker-compose.yml` | 94 | 0 | 0 | 0 |
+| `docs` | 698 | 613 | 13 | 1 |
+| `docs/adr` | 347 | 16 | 0 | 0 |
+| `docs/changelog.d` | 2244 | 0 | 0 | 0 |
+| `evals` | 8383 | 228 | 33 | 4 |
+| `evals/cases.d` | 0 | 58 | 0 | 0 |
+| `evals/cassettes` | 0 | 2268 | 0 | 0 |
+| `evals/essential` | 0 | 1223 | 0 | 0 |
+| `evals/judge_calibration.d` | 0 | 48 | 0 | 0 |
+| `evals/proxy` | 286 | 0 | 0 | 0 |
+| `evals/retrieval.d` | 0 | 67 | 0 | 0 |
+| `evals/retrieval.drafts` | 0 | 47 | 0 | 0 |
+| `ops` | 808 | 0 | 0 | 0 |
+| `pyproject.toml` | 56 | 0 | 0 | 0 |
+| `requirements-dev.lock` | 252 | 0 | 0 | 0 |
+| `requirements-hybrid.lock` | 282 | 0 | 0 | 0 |
+| `requirements.lock` | 149 | 0 | 0 | 0 |
+| `scripts` | 6078 | 0 | 186 | 2 |
+| `src/app` | 14161 | 779 | 0 | 0 |
+| `tests` | 20775 | 172 | 0 | 0 |
+| `tests/fixtures` | 77 | 0 | 0 | 0 |
+
+Total: **55806** linhas do kit (commit `35c5ee1`) e **5909** escritas no relógio (10% do total). Arquivos do kit alterados no relógio: 13. Fora da conta, por serem gerados: 130602 linhas em `evals/results/`.
 <!-- kit:end -->
 
 Linha do tempo commit a commit, com as tags `clock-start` e `clock-end`: [TIMESHEET.md](TIMESHEET.md).
