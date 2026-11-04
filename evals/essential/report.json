@@ -1,0 +1,30 @@
+{
+  "raters": [
+    "labels_A",
+    "labels_B"
+  ],
+  "agreement": {
+    "labels_A×labels_B": {
+      "questions": 47,
+      "jaccard_mean": 0.904,
+      "identical": 39
+    }
+  },
+  "questions_labelled": 47,
+  "drafts_labelled": {
+    "official": 7,
+    "page": 40
+  },
+  "no_essential": [],
+  "no_agreement": [
+    "Como Habilitar o Recebimento de Vendas via Pix no Aplicativo Getnet Brasil?"
+  ],
+  "back_to_drafts": [],
+  "unmatched_rules": [],
+  "gold": [
+    "evals/retrieval.d/official.jsonl",
+    "evals/retrieval.d/page.jsonl"
+  ],
+  "removed": [],
+  "drafts": []
+}
