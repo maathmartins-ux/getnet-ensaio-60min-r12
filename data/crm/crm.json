@@ -1,0 +1,30 @@
+{
+  "_doc": "CRM de teste. day_offset relativo a hoje (relógio do negócio, app.clock): -1 = ontem, 0 = hoje. last_contact_minutes_ago relativo a agora.",
+  "customers": {
+    "cliente1988": {
+      "terminals": [
+        {"terminal_id": "T1988A", "model": "Get Smart", "connection": "wifi", "online": true, "signal": "ok",
+         "last_contact_minutes_ago": 2},
+        {"terminal_id": "T1988B", "model": "Get Clássica", "connection": "chip", "online": false, "signal": "sem_sinal",
+         "last_contact_minutes_ago": 190}
+      ],
+      "transactions": [
+        {"transaction_id": "TX1001", "day_offset": -1, "time": "10:12", "method": "debit", "amount": 120.00, "status": "approved", "terminal_id": "T1988A"},
+        {"transaction_id": "TX1002", "day_offset": -1, "time": "11:40", "method": "credit", "amount": 480.00, "status": "approved", "terminal_id": "T1988A"},
+        {"transaction_id": "TX1003", "day_offset": -1, "time": "15:05", "method": "debit", "amount": 85.50, "status": "approved", "terminal_id": "T1988B"},
+        {"transaction_id": "TX1005", "day_offset": -1, "time": "17:30", "method": "pix", "amount": 60.00, "status": "approved", "terminal_id": "T1988A"},
+        {"transaction_id": "TX1007", "day_offset": 0, "time": "09:20", "method": "credit", "amount": 210.00, "status": "declined", "decline_code": "51", "terminal_id": "T1988A"},
+        {"transaction_id": "TX1008", "day_offset": 0, "time": "09:45", "method": "debit", "amount": 75.00, "status": "declined", "decline_code": "05", "terminal_id": "T1988A"}
+      ]
+    },
+    "cliente2077": {
+      "terminals": [
+        {"terminal_id": "T2077A", "model": "Get Mini", "connection": "wifi", "online": true, "signal": "ok",
+         "last_contact_minutes_ago": 5}
+      ],
+      "transactions": [
+        {"transaction_id": "TX2001", "day_offset": -1, "time": "12:00", "method": "credit", "amount": 999.00, "status": "approved", "terminal_id": "T2077A"}
+      ]
+    }
+  }
+}
