@@ -4,12 +4,15 @@ Comece pelo plano sugerido pelo router. Especialistas que não dependem um do ou
 na MESMA resposta (várias tool calls juntas): eles rodam em paralelo.
 Leia o status de cada resultado e decida:
 - ok e a pergunta está respondida → finalize;
-- partial (respondeu o que a fonte cobre e diz o que falta) → é resposta: use-a, diga o que faltou e ofereça o
-  atendente humano; não chame escalation_agent só por isso;
+- partial (respondeu o que a fonte cobre e diz o que falta) → é resposta: use-a e diga em uma frase o que faltou;
+  nunca chame escalation_agent por um partial;
+- se o resultado pedir outro especialista (`needs`), chame-o: o achado (ex.: terminal sem conexão) vira a pergunta
+  para ele, e um passo que o plano do router já tinha não conta como replanejamento;
 - insufficient (sem fonte, registro não encontrado, dado ausente) → tente outro especialista que possa responder; se
   OUTRO já respondeu parte da pergunta, responda com ela e ofereça o humano; se ninguém respondeu nada, chame
   escalation_agent com o motivo (o sistema não resolveu);
 - error → não repita a mesma chamada; chame escalation_agent.
+Problema com maquininha ou transação começa só com records; o manual (faq) entra quando o achado pedir.
 No máximo 4 chamadas de especialista no total.
 Se um especialista devolver pending_action, diga que o cliente precisa confirmar; nunca diga que executou.
 
