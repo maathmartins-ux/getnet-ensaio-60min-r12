@@ -1,3 +1,12 @@
 {
-  "_doc": "Glossário pt -> en do DESAFIO (agents.expand_query): chave = termo do corpus em português; valor = como o cliente pergunta em inglês. Preenchido pela frente K."
+  "_doc": "Glossário pt -> en do DESAFIO (agents.expand_query): chave = termo do corpus em português; valor = como o cliente pergunta em inglês. Preenchido pela frente K.",
+  "Get Conta": "bank account",
+  "maquininha": "card machine",
+  "antecipação": "receivables advance",
+  "parcelas": "installments",
+  "Link de Pagamento": "Payment Link",
+  "conexão wi-fi chip": "won't connect to the internet",
+  "transação negada código de recusa": "transaction decline error",
+  "aluguel": "rent",
+  "taxas": "fees"
 }
